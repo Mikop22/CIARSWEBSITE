@@ -11,6 +11,7 @@ const beVietnamPro = Be_Vietnam_Pro({
 export const metadata: Metadata = {
   title: "13th Decolonizing Conference | CIARS",
   description: "Colonial Ruptures: Unmasking Ongoing Coloniality, Resistance, and Liberatory Possibilities - March 12-14, 2025 | OISE, University of Toronto",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
 };
 
 export default function RootLayout({
