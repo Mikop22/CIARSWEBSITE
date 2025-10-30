@@ -39,20 +39,20 @@ export default function Home() {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light dark:bg-background-dark">
       <FloatingRegisterButton />
+      <ThemeToggle />
       <div className="layout-container flex h-full grow flex-col">
         <div className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
           <div className="layout-content-container flex flex-col max-w-7xl flex-1">
             {/* TopNavBar */}
             <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-4 lg:px-10 py-3 animate-fade-in-up">
-              <div className="flex items-center gap-3">
-                <ThemeToggle />
-                <div className="size-10 text-primary">
+              <div className="flex items-center gap-4">
+                <div className="size-14 text-primary flex items-center justify-center">
                   <Image
                     src="/logotrans.png"
                     alt="logo"
-                    width={80}
-                    height={80}
-                    className="size-10"
+                    width={96}
+                    height={96}
+                    className="size-14"
                     priority
                   />
                 </div>
