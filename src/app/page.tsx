@@ -1,5 +1,6 @@
 import Image from "next/image";
 import FloatingRegisterButton from "@/components/FloatingRegisterButton";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   const partners = [
@@ -43,7 +44,8 @@ export default function Home() {
           <div className="layout-content-container flex flex-col max-w-7xl flex-1">
             {/* TopNavBar */}
             <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-4 lg:px-10 py-3 animate-fade-in-up">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                <ThemeToggle />
                 <div className="size-10 text-primary">
                   <Image
                     src="/logotrans.png"

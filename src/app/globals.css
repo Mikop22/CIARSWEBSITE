@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #f8f6f6;
@@ -34,6 +35,20 @@
   }
 }
 
+html.light {
+  --background: #f8f6f6;
+  --foreground: #1b110d;
+  --card: #fcf9f8;
+  --border: #f3eae7;
+}
+
+html.dark {
+  --background: #221510;
+  --foreground: #f8f6f6;
+  --card: #2a1a14;
+  --border: #3f2d26;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -43,6 +58,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-be-vietnam-pro), sans-serif;
+  transition: background-color 200ms ease, color 200ms ease;
 }
 
 @keyframes fadeInUp {
