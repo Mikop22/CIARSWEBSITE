@@ -1,9 +1,83 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
 import FloatingRegisterButton from "@/components/FloatingRegisterButton";
-import ThemeToggle from "@/components/ThemeToggle";
 import MobileMenu from "@/components/MobileMenu";
+import Lightbox from "@/components/Lightbox";
+
+const GALLERY_IMAGES = [
+  "/pastconference/IMG_2476.jpg",
+  "/pastconference/IMG_1952.jpg",
+  "/pastconference/IMG_1832.jpg",
+  "/pastconference/IMG_2092.jpg",
+  "/pastconference/IMG_2010.jpg",
+  "/pastconference/IMG_2494.jpg",
+  "/pastconference/IMG_1922.jpg",
+  "/pastconference/IMG_2175.jpg",
+  "/pastconference/IMG_1982.jpg",
+  "/pastconference/IMG_1931.jpg",
+  "/pastconference/IMG_2301.jpg",
+  "/pastconference/IMG_1821.jpg",
+  "/pastconference/IMG_2276.jpg",
+  "/pastconference/IMG_2145.jpg",
+  "/pastconference/IMG_1972.jpg",
+  "/pastconference/IMG_2204.jpg",
+  "/pastconference/IMG_2142.jpg",
+  "/pastconference/IMG_2304.jpg",
+  "/pastconference/IMG_2502.jpg",
+  "/pastconference/IMG_2068.jpg",
+  "/pastconference/IMG_1936.jpg",
+  "/pastconference/IMG_2386.jpg",
+  "/pastconference/IMG_2249.jpg",
+  "/pastconference/IMG_2022.jpg",
+  "/pastconference/IMG_2055.jpg",
+  "/pastconference/IMG_2109.jpg",
+  "/pastconference/IMG_1830.jpg",
+  "/pastconference/IMG_1842.jpg",
+  "/pastconference/IMG_2534.jpg",
+  "/pastconference/IMG_1848.jpg",
+  "/pastconference/IMG_1766.jpg",
+  "/pastconference/IMG_2306.jpg",
+  "/pastconference/IMG_2327.jpg",
+  "/pastconference/IMG_1798.jpg",
+  "/pastconference/IMG_2079.jpg",
+  "/pastconference/IMG_2432.jpg",
+  "/pastconference/IMG_2281.jpg",
+  "/pastconference/IMG_2030.jpg",
+  "/pastconference/IMG_1862.jpg",
+  "/pastconference/IMG_2539.jpg",
+  "/pastconference/IMG_2244.jpg",
+  "/pastconference/IMG_2533.jpg",
+  "/pastconference/IMG_2046.jpg",
+  "/pastconference/IMG_2335.jpg",
+  "/pastconference/IMG_2141.jpg",
+];
+
+const IMAGES_PER_BATCH = 12;
 
 export default function Home() {
+  const [visibleCount, setVisibleCount] = useState(IMAGES_PER_BATCH);
+  const [loadedMap, setLoadedMap] = useState<Record<number, boolean>>({});
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const carouselStyles = `
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50%)); }
+    }
+    .carousel-scroll {
+      animation: scroll-left 40s linear infinite;
+      width: max-content;
+    }
+    .carousel-scroll:hover {
+      animation-play-state: paused;
+    }
+  `;
+
+  const markLoaded = (i: number) => {
+    setLoadedMap((prev) => (prev[i] ? prev : { ...prev, [i]: true }));
+  };
   const partners = [
     {
       name: "CIARS",
@@ -38,26 +112,27 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light dark:bg-background-dark">
+    <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light">
+      <style>{carouselStyles}</style>
       <FloatingRegisterButton />
-      <ThemeToggle />
       <div className="layout-container flex h-full grow flex-col">
         <div className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
           <div className="layout-content-container flex flex-col max-w-7xl flex-1">
             {/* TopNavBar */}
-            <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-4 lg:px-10 py-3 animate-fade-in-up">
+            <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light px-4 lg:px-10 py-3 animate-fade-in-up">
               <div className="flex items-center gap-2 sm:gap-4">
-                <div className="size-12 sm:size-14 text-primary flex items-center justify-center">
+                    <div className="size-12 sm:size-14 text-primary flex items-center justify-center">
                   <Image
                     src="/logotrans.png"
                     alt="logo"
                     width={96}
                     height={96}
-                    className="size-12 sm:size-14"
+                    sizes="(max-width:640px) 48px, (max-width:1024px) 80px, 96px"
+                    className="w-12 sm:w-14 h-auto"
                     priority
                   />
                 </div>
-                <h2 className="text-text-light dark:text-text-dark text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
+                <h2 className="text-text-light text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
               </div>
               <nav
                 className="hidden md:flex flex-1 items-center justify-end gap-8"
@@ -65,32 +140,32 @@ export default function Home() {
               >
                 <ul className="flex items-center gap-9">
                   <li>
-                    <a className="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#overview">
+                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#overview">
                       Overview
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#why-now">
+                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#why-now">
                       Why Now
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#partners">
+                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#partners">
                       Partners
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#gallery">
+                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#gallery">
                       Gallery
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#about">
+                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#about">
                       Theme
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light dark:text-text-dark text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors" href="#call-for-abstracts">
+                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#call-for-abstracts">
                       Call for Papers
                     </a>
                   </li>
@@ -119,8 +194,8 @@ export default function Home() {
               <section id="overview" className="relative py-10 md:py-20 animate-fade-in-up">
                 <div className="@container">
                   <div className="@[480px]:p-4">
-                    <div 
-                      className="flex min-h-[480px] sm:min-h-[560px] md:min-h-[600px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center text-center px-4 py-10 @[480px]:px-10" 
+                      <div 
+                      className="flex min-h-[360px] sm:min-h-[480px] md:min-h-[600px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center text-center px-4 py-10 @[480px]:px-10" 
                       style={{
                         backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBIdD0U31gYEzLnmYMnaI1sgE5B7LN-3EhhLKFMs36SPaCvjKmMaJaZtMPqlHs92WfDANFJ30S02Xn9y6aMWXk4rDl38X38mLMTMPtQNtbgj-s8RZrMPktoeUxk-4h-Y2LI4Z1zU0EY2y0CgHgSJzkwgjWnbPIb_ykwp3YfBQWjELuHaPmbrpM8zcpYUwawy3kfxstdOo2E3IJnT5WsWRbK7ZQ4FdtR-jGkeWfg1rTfgTpZukvC8aj8hQ2u5Ak5dEtTiR6AbI1XyTwS")'
                       }}
@@ -147,22 +222,23 @@ export default function Home() {
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12">
                   {/* SectionHeader */}
                   <div className="lg:col-span-2 animate-fade-in-up">
-                    <h2 className="text-text-light dark:text-text-dark text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-[-0.015em]">Why This Conference Now?</h2>
-                    {/* Logo below heading */}
-                    <div className="mt-4 sm:mt-6 flex justify-center lg:justify-start">
+                    <h2 className="text-text-light text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-[-0.015em]">Why This Conference Now?</h2>
+                    {/* Logo below heading: hidden on very small screens, centered under the subtitle */}
+                    <div className="mt-4 sm:mt-6 hidden sm:flex w-full items-center justify-center">
                       <Image
                         src="/logotrans.png"
                         alt="CIARS logo"
                         width={220}
                         height={220}
-                        className="w-32 h-32 sm:w-44 sm:h-44 object-contain"
+                        sizes="(max-width:640px) 128px, (max-width:1024px) 176px, 220px"
+                        className="w-28 sm:w-44 h-auto object-contain"
                         priority
                       />
                     </div>
                   </div>
                   {/* BodyText */}
                   <div className="lg:col-span-3 space-y-3 sm:space-y-4 animate-fade-in-up">
-                    <p className="text-text-light/80 dark:text-text-dark/80 text-sm sm:text-base font-normal leading-relaxed">
+                    <p className="text-text-light/80 text-sm sm:text-base font-normal leading-relaxed">
                       In a world grappling with the enduring legacies of colonialism, this conference provides a critical space for dialogue, reflection, and action. We convene to challenge the structures that perpetuate coloniality and to amplify the voices of resistance that forge paths toward liberatory futures. This gathering is a call to scholars, activists, artists, and community members to collectively unmask ongoing colonial ruptures and imagine possibilities for profound, sustainable change and regeneration.
                     </p>
                     {/* ButtonGroup */}
@@ -171,7 +247,7 @@ export default function Home() {
                         <a href="#call-for-abstracts" className="flex min-w-[120px] flex-1 sm:flex-initial cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 sm:h-12 px-4 sm:px-5 bg-primary text-white text-sm sm:text-base font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all">
                           <span className="truncate">Submit an Abstract</span>
                         </a>
-                        <button type="button" className="flex min-w-[120px] flex-1 sm:flex-initial cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 sm:h-12 px-4 sm:px-5 bg-primary/20 dark:bg-primary/30 text-text-light dark:text-text-dark text-sm sm:text-base font-medium leading-normal tracking-[0.015em] hover:bg-primary/30 dark:hover:bg-primary/40 transition-all">
+                        <button type="button" className="flex min-w-[120px] flex-1 sm:flex-initial cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 sm:h-12 px-4 sm:px-5 bg-primary/20 text-text-light text-sm sm:text-base font-medium leading-normal tracking-[0.015em] hover:bg-primary/30 transition-all">
                           <span className="truncate">Register Now</span>
                         </button>
                       </div>
@@ -181,33 +257,29 @@ export default function Home() {
               </section>
 
               {/* Partner Logos Banner */}
-              <section id="partners" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background-light dark:bg-background-dark -mx-4 sm:-mx-8 md:-mx-16 lg:-mx-24 xl:-mx-40">
+              <section id="partners" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background-light -mx-4 sm:-mx-8 md:-mx-16 lg:-mx-24 xl:-mx-40">
                 <div className="w-full">
-                  <h3 className="text-center text-text-light dark:text-text-dark text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-8 sm:pb-12">
+                  <h3 className="text-center text-text-light text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-8 sm:pb-12">
                     In Collaboration With
                   </h3>
-                  <div className="relative w-full overflow-hidden mask-gradient">
-                    <div className="flex animate-scroll">
-                      {[...Array(2)].map((_, loopIndex) => (
-                        <div key={loopIndex} className="flex items-center justify-around gap-16 px-12 flex-shrink-0">
-                          {partners.map((partner) => (
-                            <div key={`${partner.name}-${loopIndex}`} className="w-32 sm:w-40 md:w-48 h-20 sm:h-24 md:h-28 flex items-center justify-center rounded-lg p-2 sm:p-3 md:p-4">
-                              {partner.logo ? (
-                                <Image
-                                  src={partner.logo}
-                                  alt={partner.alt}
-                                  width={192}
-                                  height={112}
-                                  className="h-full w-auto object-contain"
-                                  priority={loopIndex === 0}
-                                />
-                              ) : (
-                                <span className="text-xs text-center font-medium text-gray-600 dark:text-gray-300">
-                                  {partner.name}
-                                </span>
-                              )}
-                            </div>
-                          ))}
+                  <div className="relative w-full overflow-hidden">
+                    <div className="carousel-scroll flex gap-6 md:gap-16 items-center py-4 md:py-0">
+                      {[...partners, ...partners].map((partner, i) => (
+                        <div key={`${partner.name}-${i}`} className="flex-shrink-0 w-28 sm:w-40 md:w-48 h-16 sm:h-24 md:h-28 flex items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 mx-3">
+                          {partner.logo ? (
+                            <Image
+                              src={partner.logo}
+                              alt={partner.alt}
+                              width={192}
+                              height={112}
+                              className="h-full w-auto object-contain"
+                              priority={i === 0}
+                            />
+                          ) : (
+                            <span className="text-xs text-center font-medium text-gray-600">
+                              {partner.name}
+                            </span>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -218,47 +290,59 @@ export default function Home() {
               {/* Image Banner/Carousel Section */}
               <section id="gallery" className="py-8 sm:py-10 md:py-16 animate-fade-in-up">
                 <div className="w-full overflow-hidden">
-                  <h3 className="text-center text-text-light dark:text-text-dark text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8">From Our Past Gatherings</h3>
-                  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 px-4">
-                    <div className="aspect-w-1 aspect-h-1">
-                      <Image 
-                        className="h-full w-full rounded-lg object-cover" 
-                        alt="Attendees engaged in a vibrant discussion during a previous conference workshop." 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8ceV3j7ffMMRTOsRXH7CKTkuqVrh7U8eJzKqec0xwO1u6BX1CrO8UJzvE6tjOXjgY6Gd1dfqQmgMqFAnxmwVazA1CXSgFzd4Gkf27qv9M-Xk081LyhiUwDrtAxKwqaPfYjwzpkOx2iuPx2HIvhbeBp51spMvcGNIjA-0zej8ScsTO-uhcKvOJo4pgxfWWqp8D7R46nQ-CKq51Fi6PJDhYQUAHs8GP1GRqdSPGgoZOHKmxIcORR6zPz1VDIFmOxLBE5lO5tZozUmwf"
-                        width={300}
-                        height={300}
-                      />
-                    </div>
-                    <div className="aspect-w-1 aspect-h-1">
-                      <Image 
-                        className="h-full w-full rounded-lg object-cover" 
-                        alt="A keynote speaker passionately addressing the audience at a past event." 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdh80r-Ak6lOVFKNacdXEqWgTbwI6fwL50tJsd2RsZWywxqaKx-JLMNpkqYeL8sYrRDMeEqyCglCp2SgcIp42MlIQ5UvLvNHRgKUs3aJ5WvUgA0TiqR_A1MprWcvBxW1aG8HFM8vj33l9b-AVCGm-UD8bSYaIWpyKvXYBrBULcDECrpqfa1-I0HKc-1kx_GisIBUYMykZ5ZWphGP9b771A-vvI89g4iDlcLPkpZQd3yY5-2vlnhUZryqqVJ5-A_UWTvZSFg6sO9KH_"
-                        width={300}
-                        height={300}
-                      />
-                    </div>
-                    <div className="aspect-w-1 aspect-h-1">
-                      <Image 
-                        className="h-full w-full rounded-lg object-cover" 
-                        alt="Conference participants networking and sharing ideas during a coffee break." 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjOQ8mtyy84RyNzB7AP3GgSymNMBFae2lRr9r5kb10zVnSkn8BkwaUeClfmZMiWULjzW5jHGwSD4VrXfQ-xA18u_1PPA9nv-8SsZyC3m8T86LC_0OiGyDThYTFACb6cjlZx5i3ukgLbQt2GeEzEZsdZQii2jAM-uleOc7Q7oNasELgR3AXD6Eo4igdpd-59bNNGmVLyKCbE-lg0yM6ullDvS3F3RDPmzFM-TaGNhNulOol9O099Kp5wQhj8MXY6cWFREJ2-6hyw_Ye"
-                        width={300}
-                        height={300}
-                      />
-                    </div>
-                    <div className="aspect-w-1 aspect-h-1">
-                      <Image 
-                        className="h-full w-full rounded-lg object-cover" 
-                        alt="A collaborative art piece created by attendees during a past conference." 
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZTOWTR9gEBnInMs_XS0CVQAcHYPqKjtbDGqa4C-G50S8lT9vp5Csvs-V49k491_bkd9qqlHXLvkRiPmOOqsteqU0rysrXl5P0v-n3EAlf1dccwoDGgulILzydNQ04YpqXC_PlYJZM1o33jBJ827_t-NrruQiTxUZn4e7HQVAzg38wLSksagpHyeerASwDK6FtOR4ry35_cf_J_xwqPwLfA6XSOp4B1MLVDAsnPNq7slapWDSVlZWJSHF5DWs-FCGGq_wtRvnaeNxI"
-                        width={300}
-                        height={300}
-                      />
-                    </div>
+                  <h3 className="text-center text-text-light text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8">From Our Past Gatherings</h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 px-4">
+                    {GALLERY_IMAGES.slice(0, visibleCount).map((src, idx) => (
+                      <div key={src} className="aspect-w-1 aspect-h-1">
+                        <div
+                          className="relative h-full w-full rounded-lg overflow-hidden bg-gray-100"
+                          style={{ cursor: 'pointer' }}
+                          onClick={() => { setLightboxIndex(idx); setLightboxOpen(true); }}
+                        >
+                          {/* blurred placeholder layer */}
+                          <div
+                            className={`absolute inset-0 bg-center bg-cover transform transition-all duration-500 ease-out ${loadedMap[idx] ? 'opacity-0 scale-105' : 'opacity-100 scale-105 filter blur-2xl'}`}
+                            style={{ backgroundImage: `url(${src})`, transitionDelay: `${(idx % IMAGES_PER_BATCH) * 60}ms` }}
+                          />
+
+                          {/* actual image */}
+                          <Image
+                            className={`relative h-full w-full object-cover transition-opacity duration-500 ${loadedMap[idx] ? 'opacity-100' : 'opacity-0'}`}
+                            alt=""
+                            src={src}
+                            width={400}
+                            height={300}
+                            loading="lazy"
+                            onLoadingComplete={() => markLoaded(idx)}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Load more button */}
+                  <div className="flex flex-col items-center mt-6">
+                    <button
+                      onClick={() => setVisibleCount((c) => Math.min(GALLERY_IMAGES.length, c + IMAGES_PER_BATCH))}
+                      disabled={visibleCount >= GALLERY_IMAGES.length}
+                      className="px-4 py-2 rounded-lg bg-primary text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    >
+                      {visibleCount >= GALLERY_IMAGES.length ? "All images loaded" : "Load more"}
+                    </button>
+                    <div className="text-sm text-text-light/60 mt-2">Showing {visibleCount} of {GALLERY_IMAGES.length}</div>
                   </div>
                 </div>
               </section>
+
+              {lightboxOpen && (
+                <Lightbox
+                  images={GALLERY_IMAGES}
+                  index={lightboxIndex}
+                  onClose={() => setLightboxOpen(false)}
+                  onChange={(i) => setLightboxIndex(i)}
+                />
+              )}
 
               {/* Conference Theme Section */}
               <section id="about" className="py-8 sm:py-10 md:py-16 px-4">
@@ -291,11 +375,11 @@ export default function Home() {
                     </div>
 
                     {/* Defining Features */}
-                    <div className="animate-fade-in-up bg-card-light dark:bg-card-dark rounded-xl p-5 sm:p-6 md:p-8 border border-border-light dark:border-border-dark">
-                      <h3 className="text-text-light dark:text-text-dark text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] mb-3 sm:mb-4">
+                    <div className="animate-fade-in-up bg-card-light rounded-xl p-5 sm:p-6 md:p-8 border border-border-light">
+                      <h3 className="text-text-light text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] mb-3 sm:mb-4">
                         Defining Features
                       </h3>
-                      <p className="text-text-light/80 dark:text-text-dark/80 text-sm sm:text-base font-normal leading-relaxed">
+                      <p className="text-text-light/80 text-sm sm:text-base font-normal leading-relaxed">
                         As a defining feature, the conference calls for learners and community workers to reject performative intellectualism and politics and instead create communities and uphold academic mentorship - specifically holding each other up rather than tearing each other down. It is urgent for us to reject colonial binaries that promote &ldquo;thinking in hierarchies&rdquo;, eradicate toxicity and dehumanization and see education and social justice work as foundational to human liberation. Together, we aim to resist hate, violence, oppression and genocide within the corollary of colonialism by bridging the gaps between scholarship, activism and social politics.
                       </p>
                     </div>
@@ -311,10 +395,10 @@ export default function Home() {
                     <p className="text-primary text-xs uppercase tracking-[0.2em] mb-6 sm:mb-8">
                       Call for Papers & Participation
                     </p>
-                    <h2 className="text-text-light dark:text-text-dark text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight mb-6 sm:mb-8">
+                    <h2 className="text-text-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight mb-6 sm:mb-8">
                       Build liberatory futures with us
                     </h2>
-                    <p className="text-text-light/70 dark:text-text-dark/70 text-base sm:text-lg leading-relaxed">
+                    <p className="text-text-light/70 text-base sm:text-lg leading-relaxed">
                       Building on the conference&rsquo;s commitment to de/anti-colonial praxis, we invite papers and creative contributions that examine the intersections of coloniality, resistance, and liberation across educational, cultural, and political contexts.
                     </p>
                   </div>
@@ -328,10 +412,10 @@ export default function Home() {
 
                   {/* Guiding Questions */}
                   <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up">
-                    <h3 className="text-text-light dark:text-text-dark text-xl sm:text-2xl font-light mb-6 sm:mb-8 text-center">
+                    <h3 className="text-text-light text-xl sm:text-2xl font-light mb-6 sm:mb-8 text-center">
                       Guiding Questions
                     </h3>
-                    <div className="space-y-4 sm:space-y-6 text-text-light/80 dark:text-text-dark/80 text-sm sm:text-base leading-relaxed">
+                    <div className="space-y-4 sm:space-y-6 text-text-light/80 text-sm sm:text-base leading-relaxed">
                       <p>How can we build anti-colonial solidarities rooted in radical hope and futurity?</p>
                       <p>How do we deploy critical understandings and literacies of Land&mdash;and its earthly teachings of relationality, sharing, reciprocity, connection, and mutual interdependence&mdash;to subvert colonial hierarchies of schooling and education and foster social responsibility (see Dei, 2008)?</p>
                       <p>How do we reclaim our resistive subjectivities and continue our ancestral struggles for liberation and capacitate abolitionist politics?</p>
@@ -345,24 +429,24 @@ export default function Home() {
 
                   {/* Submission Guidelines */}
                   <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up">
-                    <h3 className="text-text-light dark:text-text-dark text-xl sm:text-2xl font-light mb-6 sm:mb-8 text-center">
+                    <h3 className="text-text-light text-xl sm:text-2xl font-light mb-6 sm:mb-8 text-center">
                       Submission Guidelines
                     </h3>
-                    <div className="space-y-6 sm:space-y-8 text-text-light/80 dark:text-text-dark/80">
+                    <div className="space-y-6 sm:space-y-8 text-text-light/80">
                       <div className="text-center">
-                        <p className="text-text-light dark:text-text-dark font-medium mb-2">Abstract Length</p>
+                        <p className="text-text-light font-medium mb-2">Abstract Length</p>
                         <p className="text-sm">250&ndash;300 words outlining purpose, method, and contribution</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-text-light dark:text-text-dark font-medium mb-2">Paper Length</p>
+                        <p className="text-text-light font-medium mb-2">Paper Length</p>
                         <p className="text-sm">Full papers (optional) up to 4,000 words</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-text-light dark:text-text-dark font-medium mb-2">Presentation Formats</p>
+                        <p className="text-text-light font-medium mb-2">Presentation Formats</p>
                         <p className="text-sm">Papers, panels, workshops, performances, dialogues, and community-engaged sessions</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-text-light dark:text-text-dark font-medium mb-2">Evaluation Criteria</p>
+                        <p className="text-text-light font-medium mb-2">Evaluation Criteria</p>
                         <p className="text-sm">Alignment with theme, originality, clarity, community accountability, and transformative potential</p>
                       </div>
                     </div>
@@ -373,10 +457,10 @@ export default function Home() {
 
                   {/* Key Dates */}
                   <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up text-center">
-                    <h3 className="text-text-light dark:text-text-dark text-xl sm:text-2xl font-light mb-6 sm:mb-8">
+                    <h3 className="text-text-light text-xl sm:text-2xl font-light mb-6 sm:mb-8">
                       Key Dates
                     </h3>
-                    <div className="space-y-3 sm:space-y-4 text-text-light/80 dark:text-text-dark/80 text-sm sm:text-base">
+                    <div className="space-y-3 sm:space-y-4 text-text-light/80 text-sm sm:text-base">
                       <p><span className="text-text-light dark:text-text-dark font-medium">Deadline:</span> January 12, 2025 at 11:59 PM EST</p>
                       <p><span className="text-text-light dark:text-text-dark font-medium">Notification:</span> February 10, 2025</p>
                     </div>
@@ -387,10 +471,10 @@ export default function Home() {
 
                   {/* Submit */}
                   <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up text-center">
-                    <h3 className="text-text-light dark:text-text-dark text-xl sm:text-2xl font-light mb-6 sm:mb-8">
+                    <h3 className="text-text-light text-xl sm:text-2xl font-light mb-6 sm:mb-8">
                       How to Submit
                     </h3>
-                    <p className="text-text-light/80 dark:text-text-dark/80 text-sm sm:text-base mb-4 sm:mb-6">
+                    <p className="text-text-light/80 text-sm sm:text-base mb-4 sm:mb-6">
                       Send your abstract and supporting materials via email
                     </p>
                     <a href="mailto:ciars.conference@utoronto.ca" className="inline-block text-primary text-lg sm:text-xl underline underline-offset-8 hover:text-primary/80 transition-colors break-all">
@@ -407,7 +491,7 @@ export default function Home() {
 
                   {/* Accessibility */}
                   <div className="text-center animate-fade-in-up">
-                    <p className="text-text-light/60 dark:text-text-dark/60 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto">
+                    <p className="text-text-light/60 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto">
                       We welcome multi-modal, community-engaged, and creative proposals that honour accessibility, language diversity, and collective learning practices. Let us know how we can support your participation.
                     </p>
                   </div>
