@@ -209,7 +209,7 @@ export default function Home() {
                           COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY, RESISTANCE, AND LIBERATORY POSSIBILITIES
                         </h2>
                         <p className="text-white/80 text-xs sm:text-sm font-normal leading-normal @[480px]:text-base">
-                          March 12-14, 2025 | OISE, University of Toronto
+                          March 12-14, 2026 | OISE, University of Toronto
                         </p>
                       </div>
                     </div>
