@@ -197,7 +197,7 @@ export default function Home() {
                       <div 
                       className="flex min-h-[360px] sm:min-h-[480px] md:min-h-[600px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center text-center px-4 py-10 @[480px]:px-10" 
                       style={{
-                        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBIdD0U31gYEzLnmYMnaI1sgE5B7LN-3EhhLKFMs36SPaCvjKmMaJaZtMPqlHs92WfDANFJ30S02Xn9y6aMWXk4rDl38X38mLMTMPtQNtbgj-s8RZrMPktoeUxk-4h-Y2LI4Z1zU0EY2y0CgHgSJzkwgjWnbPIb_ykwp3YfBQWjELuHaPmbrpM8zcpYUwawy3kfxstdOo2E3IJnT5WsWRbK7ZQ4FdtR-jGkeWfg1rTfgTpZukvC8aj8hQ2u5Ak5dEtTiR6AbI1XyTwS")'
+                        backgroundImage: 'url("/hero-bg.jpg")',
                       }}
                     >
                       <div className="flex flex-col gap-3 sm:gap-4 max-w-4xl">
