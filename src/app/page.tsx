@@ -55,6 +55,9 @@ const GALLERY_IMAGES = [
 
 const IMAGES_PER_BATCH = 12;
 
+// Centralized URL for easier updates
+const REGISTRATION_URL = "https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator";
+
 export default function Home() {
   const [visibleCount, setVisibleCount] = useState(IMAGES_PER_BATCH);
   const [loadedMap, setLoadedMap] = useState<Record<number, boolean>>({});
@@ -97,7 +100,7 @@ export default function Home() {
     {
       name: "CLD",
       alt: "Centre for Leadership and Diversity logo",
-      logo: undefined,
+      logo: null,
     },
     {
       name: "Centre for Black Student Achievement",
@@ -114,7 +117,10 @@ export default function Home() {
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light">
       <style>{carouselStyles}</style>
+      
+      {/* NOTE: Update the link inside this component file manually */}
       <FloatingRegisterButton />
+
       <div className="layout-container flex h-full grow flex-col">
         <div className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
           <div className="layout-content-container flex flex-col max-w-7xl flex-1">
@@ -170,21 +176,27 @@ export default function Home() {
                     </a>
                   </li>
                 </ul>
-                <button
-                  type="button"
+                {/* UPDATED: Desktop Register Button */}
+                <a
+                  href={REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex min-w-[84px] max-w-[480px] items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
                 >
                   <span className="truncate">Register</span>
-                </button>
+                </a>
               </nav>
               <div className="md:hidden flex items-center gap-2">
-                <button
-                  type="button"
+                {/* UPDATED: Mobile Register Button */}
+                <a
+                  href={REGISTRATION_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-lg h-10 px-3 sm:px-4 bg-primary text-white text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
                 >
                   <span className="hidden xs:inline">Register</span>
                   <span className="xs:hidden">Join</span>
-                </button>
+                </a>
                 <MobileMenu />
               </div>
             </header>
@@ -247,9 +259,15 @@ export default function Home() {
                         <a href="#call-for-abstracts" className="flex min-w-[120px] flex-1 sm:flex-initial cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 sm:h-12 px-4 sm:px-5 bg-primary text-white text-sm sm:text-base font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all">
                           <span className="truncate">Submit an Abstract</span>
                         </a>
-                        <button type="button" className="flex min-w-[120px] flex-1 sm:flex-initial cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 sm:h-12 px-4 sm:px-5 bg-primary/20 text-text-light text-sm sm:text-base font-medium leading-normal tracking-[0.015em] hover:bg-primary/30 transition-all">
+                        {/* UPDATED: Content Section Register Button */}
+                        <a 
+                          href={REGISTRATION_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex min-w-[120px] flex-1 sm:flex-initial cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 sm:h-12 px-4 sm:px-5 bg-primary/20 text-text-light text-sm sm:text-base font-medium leading-normal tracking-[0.015em] hover:bg-primary/30 transition-all"
+                        >
                           <span className="truncate">Register Now</span>
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
