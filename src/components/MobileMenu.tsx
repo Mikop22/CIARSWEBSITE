@@ -1,36 +1,27 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
-export default function MobileMenu() {
+interface NavLink {
+  name: string;
+  href: string;
+}
+
+const defaultNavLinks: NavLink[] = [
+    { href: '#overview', name: 'Overview' },
+    { href: '#why-now', name: 'Why Now' },
+    { href: '#partners', name: 'Partners' },
+    { href: '#gallery', name: 'Gallery' },
+    { href: '#about', name: 'Theme' },
+    { href: '#call-for-abstracts', name: 'Call for Papers' },
+];
+
+export default function MobileMenu({ navLinks = defaultNavLinks }: { navLinks?: NavLink[] }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          {isOpen ? (
-            <path d="M6 18L18 6M6 6l12 12" />
-          ) : (
-            <path d="M4 6h16M4 12h16M4 18h16" />
-          )}
-        </svg>
   const closeMenu = () => setIsOpen(false);
-
-  const menuItems = [
-    { href: '#overview', label: 'Overview' },
-    { href: '#why-now', label: 'Why Now' },
-    { href: '#partners', label: 'Partners' },
-    { href: '#gallery', label: 'Gallery' },
-    { href: '#about', label: 'Theme' },
-    { href: '#call-for-abstracts', label: 'Call for Papers' },
-  ];
 
   return (
     <>
@@ -98,14 +89,14 @@ export default function MobileMenu() {
               {/* Menu Items */}
               <nav className="flex-1 overflow-y-auto py-4">
                 <ul className="space-y-1">
-                  {menuItems.map((item) => (
+                  {navLinks.map((item) => (
                     <li key={item.href}>
                       <a
                         href={item.href}
                         onClick={closeMenu}
                         className="block px-4 py-3 text-text-light dark:text-text-dark hover:bg-card-light dark:hover:bg-card-dark hover:text-primary dark:hover:text-primary transition-colors font-medium"
                       >
-                        {item.label}
+                        {item.name}
                       </a>
                     </li>
                   ))}
@@ -114,13 +105,14 @@ export default function MobileMenu() {
 
               {/* Register Button in Menu */}
               <div className="p-4 border-t border-border-light dark:border-border-dark">
-                <button
-                  type="button"
-                  onClick={closeMenu}
+                <a
+                  href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full flex items-center justify-center rounded-lg h-12 px-4 bg-primary text-white text-base font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
                 >
                   Register
-                </button>
+                </a>
               </div>
             </div>
           </div>
