@@ -120,7 +120,7 @@ export default function Home() {
         <div className="px-2 sm:px-4 md:px-8 lg:px-16 xl:px-32 flex flex-1 justify-center py-2 sm:py-4">
           <div className="layout-content-container flex flex-col max-w-7xl flex-1">
             {/* TopNavBar */}
-            <header className="sticky top-0 z-30 bg-[#f0f0f0] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-2 sm:px-4 lg:px-10 py-2 sm:py-3">
+            <header className="sticky top-0 z-30 bg-[#fbf0db] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-2 sm:px-4 lg:px-10 py-2 sm:py-3">
               <div className="flex items-center gap-1 sm:gap-2">
                     <div className="size-10 sm:size-12 text-primary flex items-center justify-center">
                   <Image
@@ -163,11 +163,6 @@ export default function Home() {
                   <li>
                     <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#about">
                       Theme
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#call-for-abstracts">
-                      Call for Papers
                     </a>
                   </li>
                 </ul>
@@ -246,14 +241,11 @@ export default function Home() {
                     {/* ButtonGroup */}
                     <div className="pt-2 sm:pt-4">
                       <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                        <a href="#call-for-abstracts" className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]">
-                          Submit an Abstract
-                        </a>
                         <a 
                           href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary/20 text-foreground text-xs sm:text-sm font-medium hover:bg-primary/30 transition-all active:scale-[0.98]"
+                          className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]"
                         >
                           Register Now
                         </a>
@@ -471,22 +463,6 @@ export default function Home() {
                       <p><span className="text-foreground dark:text-text-dark font-medium">Deadline:</span> January 12, 2025 at 11:59 PM EST</p>
                       <p><span className="text-foreground dark:text-text-dark font-medium">Notification:</span> February 10, 2025</p>
                     </div>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="h-px w-16 bg-primary/20 mx-auto mb-12 sm:mb-16 md:mb-20" />
-
-                  {/* Submit */}
-                  <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up text-center">
-                    <h3 className="text-foreground text-xl sm:text-2xl font-light mb-6 sm:mb-8">
-                      How to Submit
-                    </h3>
-                    <p className="text-foreground/80 text-sm sm:text-base mb-4 sm:mb-6">
-                      Send your abstract and supporting materials via email
-                    </p>
-                    <a href="mailto:ciars.conference@utoronto.ca" className="inline-block text-primary text-lg sm:text-xl underline underline-offset-8 hover:text-primary/80 transition-colors break-all">
-                      ciars.conference@utoronto.ca
-                    </a>
                   </div>
 
                   {/* Dot divider */}

@@ -27,7 +27,6 @@ export default function MobileMenu() {
     { href: '#partners', label: 'Partners' },
     { href: '#gallery', label: 'Gallery' },
     { href: '#about', label: 'Theme' },
-    { href: '#call-for-abstracts', label: 'Call for Papers' },
   ];
 
   return (
