@@ -1,12 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
-
-const beVietnamPro = Be_Vietnam_Pro({
-  variable: "--font-be-vietnam-pro",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
-});
 
 export const metadata: Metadata = {
   title: "13th Decolonizing Conference | CIARS",
@@ -27,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body
-        className={`${beVietnamPro.variable} antialiased`}
+        className="antialiased"
       >
         {children}
       </body>
