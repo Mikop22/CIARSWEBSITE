@@ -116,29 +116,26 @@ export default function Home() {
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
       <style>{carouselStyles}</style>
       <FloatingRegisterButton />
-      <div className="layout-container flex h-full grow flex-col w-full max-w-full">
-        <div className="px-2 sm:px-4 md:px-8 lg:px-16 xl:px-32 flex flex-1 justify-center py-2 sm:py-4">
-          <div className="layout-content-container flex flex-col max-w-7xl flex-1">
-            {/* TopNavBar */}
-            <header className="sticky top-0 z-30 bg-[#fbf0db] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-2 sm:px-4 lg:px-10 py-2 sm:py-3">
-              <div className="flex items-center gap-1 sm:gap-2">
-                    <div className="size-10 sm:size-12 text-primary flex items-center justify-center">
-                  <Image
-                    src="/logotrans.png"
-                    alt="logo"
-                    width={96}
-                    height={96}
-                    sizes="(max-width:640px) 40px, (max-width:1024px) 48px, 56px"
-                    className="w-10 sm:w-12 h-auto"
-                    priority
-                  />
-                </div>
-                <h2 className="text-foreground text-sm sm:text-base font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
-              </div>
-              <nav
-                className="hidden md:flex flex-1 items-center justify-end gap-8"
-                aria-label="Primary"
-              >
+      {/* TopNavBar - Outside padded container for full width */}
+      <header className="sticky top-0 z-30 bg-[#fbf0db] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-2 sm:py-3">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <div className="size-10 sm:size-12 text-primary flex items-center justify-center">
+            <Image
+              src="/logotrans.png"
+              alt="logo"
+              width={96}
+              height={96}
+              sizes="(max-width:640px) 40px, (max-width:1024px) 48px, 56px"
+              className="w-10 sm:w-12 h-auto"
+              priority
+            />
+          </div>
+          <h2 className="text-foreground text-sm sm:text-base font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
+        </div>
+        <nav
+          className="hidden md:flex flex-1 items-center justify-end gap-8"
+          aria-label="Primary"
+        >
                 <ul className="flex items-center gap-9">
                   <li>
                     <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#overview">
@@ -174,26 +171,29 @@ export default function Home() {
                 >
                   <span className="truncate">Register</span>
                 </a>
-              </nav>
-              <div className="md:hidden flex items-center gap-1">
-                <a
-                  href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-md h-8 px-2 sm:px-3 bg-primary text-white text-xs sm:text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
-                >
-                  <span>Register</span>
-                </a>
-                <MobileMenu />
-              </div>
-            </header>
+        </nav>
+        <div className="md:hidden flex items-center gap-1">
+          <a
+            href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-md h-8 px-2 sm:px-3 bg-primary text-white text-xs sm:text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
+          >
+            <span>Register</span>
+          </a>
+          <MobileMenu />
+        </div>
+      </header>
 
+      <div className="layout-container flex h-full grow flex-col w-full max-w-full">
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-1 justify-center py-2 sm:py-4">
+          <div className="layout-content-container flex flex-col max-w-7xl flex-1">
             <main className="flex-grow">
               {/* HeroSection */}
               <section id="overview" className="relative py-4 sm:py-8 md:py-16 animate-fade-in-up">
                 <div className="@container">
                   <div className="@[480px]:p-4">
-                      <div 
+                    <div 
                       className="relative flex aspect-video flex-col gap-3 sm:gap-5 @[480px]:gap-8 rounded-lg sm:rounded-xl items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 @[480px]:px-10 overflow-hidden" 
                     >
                       <HeroSlideshow />
@@ -386,100 +386,6 @@ export default function Home() {
                 </div>
               </section>
 
-              {/* Call for Abstracts */}
-              <section id="call-for-abstracts" className="py-6 sm:py-10 md:py-16 lg:py-24 px-1 sm:px-2">
-                <div className="max-w-2xl mx-auto">
-                  {/* Header */}
-                  <div className="text-center mb-6 sm:mb-10 md:mb-16 animate-fade-in-up">
-                    <p className="text-primary text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-3 sm:mb-5 md:mb-6">
-                      Call for Papers & Participation
-                    </p>
-                    <h2 className="text-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-tight tracking-tight mb-3 sm:mb-5 md:mb-6">
-                      Build liberatory futures with us
-                    </h2>
-                    <p className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed">
-                      Building on the conference&rsquo;s commitment to de/anti-colonial praxis, we invite papers and creative contributions that examine the intersections of coloniality, resistance, and liberation across educational, cultural, and political contexts.
-                    </p>
-                  </div>
-
-                  {/* Dot divider */}
-                  <div className="flex justify-center gap-2 mb-12 sm:mb-16 md:mb-20">
-                    <div className="w-1 h-1 rounded-full bg-primary/30" />
-                    <div className="w-1 h-1 rounded-full bg-primary/30" />
-                    <div className="w-1 h-1 rounded-full bg-primary/30" />
-                  </div>
-
-                  {/* Guiding Questions */}
-                  <div className="mb-8 sm:mb-12 md:mb-16 animate-fade-in-up">
-                    <h3 className="text-foreground text-base sm:text-lg md:text-xl font-light mb-4 sm:mb-6 text-center">
-                      Guiding Questions
-                    </h3>
-                    <div className="space-y-3 sm:space-y-4 text-foreground/80 text-xs sm:text-sm md:text-base leading-relaxed">
-                      <p>How can we build anti-colonial solidarities rooted in radical hope and futurity?</p>
-                      <p>How do we deploy critical understandings and literacies of Land&mdash;and its earthly teachings of relationality, sharing, reciprocity, connection, and mutual interdependence&mdash;to subvert colonial hierarchies of schooling and education and foster social responsibility (see Dei, 2008)?</p>
-                      <p>How do we reclaim our resistive subjectivities and continue our ancestral struggles for liberation and capacitate abolitionist politics?</p>
-                      <p>What epistemic and political practices are imperative for futurities that free us from the &ldquo;clutches of coloniality&rdquo;?</p>
-                      <p>How can we reassert control over our stories, identities, and lived experiences, while advancing critical scholarship to upend mental and intellectual enslavement?</p>
-                    </div>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="h-px w-16 bg-primary/20 mx-auto mb-12 sm:mb-16 md:mb-20" />
-
-                  {/* Submission Guidelines */}
-                  <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up">
-                    <h3 className="text-foreground text-xl sm:text-2xl font-light mb-6 sm:mb-8 text-center">
-                      Submission Guidelines
-                    </h3>
-                    <div className="space-y-6 sm:space-y-8 text-foreground/80">
-                      <div className="text-center">
-                        <p className="text-foreground font-medium mb-2">Abstract Length</p>
-                        <p className="text-sm">250&ndash;300 words outlining purpose, method, and contribution</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-foreground font-medium mb-2">Paper Length</p>
-                        <p className="text-sm">Full papers (optional) up to 4,000 words</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-foreground font-medium mb-2">Presentation Formats</p>
-                        <p className="text-sm">Papers, panels, workshops, performances, dialogues, and community-engaged sessions</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-foreground font-medium mb-2">Evaluation Criteria</p>
-                        <p className="text-sm">Alignment with theme, originality, clarity, community accountability, and transformative potential</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Divider */}
-                  <div className="h-px w-16 bg-primary/20 mx-auto mb-12 sm:mb-16 md:mb-20" />
-
-                  {/* Key Dates */}
-                  <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up text-center">
-                    <h3 className="text-foreground text-xl sm:text-2xl font-light mb-6 sm:mb-8">
-                      Key Dates
-                    </h3>
-                    <div className="space-y-3 sm:space-y-4 text-foreground/80 text-sm sm:text-base">
-                      <p><span className="text-foreground dark:text-text-dark font-medium">Deadline:</span> January 12, 2025 at 11:59 PM EST</p>
-                      <p><span className="text-foreground dark:text-text-dark font-medium">Notification:</span> February 10, 2025</p>
-                    </div>
-                  </div>
-
-                  {/* Dot divider */}
-                  <div className="flex justify-center gap-2 mb-12 sm:mb-16 md:mb-20">
-                    <div className="w-1 h-1 rounded-full bg-primary/30" />
-                    <div className="w-1 h-1 rounded-full bg-primary/30" />
-                    <div className="w-1 h-1 rounded-full bg-primary/30" />
-                  </div>
-
-                  {/* Accessibility */}
-                  <div className="text-center animate-fade-in-up">
-                    <p className="text-foreground/60 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto">
-                      We welcome multi-modal, community-engaged, and creative proposals that honour accessibility, language diversity, and collective learning practices. Let us know how we can support your participation.
-                    </p>
-                  </div>
-                </div>
-              </section>
             </main>
           </div>
         </div>
