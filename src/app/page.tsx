@@ -4,6 +4,7 @@ import Image from "next/image";
 import FloatingRegisterButton from "@/components/FloatingRegisterButton";
 import MobileMenu from "@/components/MobileMenu";
 import Lightbox from "@/components/Lightbox";
+import HeroSlideshow from "@/components/HeroSlideshow";
 
 const GALLERY_IMAGES = [
   "/pastconference/IMG_2476.jpg",
@@ -55,9 +56,6 @@ const GALLERY_IMAGES = [
 
 const IMAGES_PER_BATCH = 12;
 
-// Centralized URL for easier updates
-const REGISTRATION_URL = "https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator";
-
 export default function Home() {
   const [visibleCount, setVisibleCount] = useState(IMAGES_PER_BATCH);
   const [loadedMap, setLoadedMap] = useState<Record<number, boolean>>({});
@@ -100,7 +98,7 @@ export default function Home() {
     {
       name: "CLD",
       alt: "Centre for Leadership and Diversity logo",
-      logo: null,
+      logo: undefined,
     },
     {
       name: "Centre for Black Student Achievement",
@@ -115,30 +113,27 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light">
+    <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
       <style>{carouselStyles}</style>
-      
-      {/* NOTE: Update the link inside this component file manually */}
       <FloatingRegisterButton />
-
-      <div className="layout-container flex h-full grow flex-col">
-        <div className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-5">
+      <div className="layout-container flex h-full grow flex-col w-full max-w-full">
+        <div className="px-2 sm:px-4 md:px-8 lg:px-16 xl:px-32 flex flex-1 justify-center py-2 sm:py-4">
           <div className="layout-content-container flex flex-col max-w-7xl flex-1">
             {/* TopNavBar */}
-            <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light px-4 lg:px-10 py-3 animate-fade-in-up">
-              <div className="flex items-center gap-2 sm:gap-4">
-                    <div className="size-12 sm:size-14 text-primary flex items-center justify-center">
+            <header className="sticky top-0 z-30 bg-[#f0f0f0] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-2 sm:px-4 lg:px-10 py-2 sm:py-3">
+              <div className="flex items-center gap-1 sm:gap-2">
+                    <div className="size-10 sm:size-12 text-primary flex items-center justify-center">
                   <Image
                     src="/logotrans.png"
                     alt="logo"
                     width={96}
                     height={96}
-                    sizes="(max-width:640px) 48px, (max-width:1024px) 80px, 96px"
-                    className="w-12 sm:w-14 h-auto"
+                    sizes="(max-width:640px) 40px, (max-width:1024px) 48px, 56px"
+                    className="w-10 sm:w-12 h-auto"
                     priority
                   />
                 </div>
-                <h2 className="text-text-light text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
+                <h2 className="text-foreground text-sm sm:text-base font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
               </div>
               <nav
                 className="hidden md:flex flex-1 items-center justify-end gap-8"
@@ -146,81 +141,72 @@ export default function Home() {
               >
                 <ul className="flex items-center gap-9">
                   <li>
-                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#overview">
+                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#overview">
                       Overview
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#why-now">
+                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#why-now">
                       Why Now
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#partners">
+                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#partners">
                       Partners
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#gallery">
+                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#gallery">
                       Gallery
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#about">
+                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#about">
                       Theme
                     </a>
                   </li>
                   <li>
-                    <a className="text-text-light text-sm font-medium leading-normal hover:text-primary transition-colors" href="#call-for-abstracts">
+                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#call-for-abstracts">
                       Call for Papers
                     </a>
                   </li>
                 </ul>
-                {/* UPDATED: Desktop Register Button */}
-                <a
-                  href={REGISTRATION_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
                   className="flex min-w-[84px] max-w-[480px] items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
                 >
                   <span className="truncate">Register</span>
-                </a>
+                </button>
               </nav>
-              <div className="md:hidden flex items-center gap-2">
-                {/* UPDATED: Mobile Register Button */}
-                <a
-                  href={REGISTRATION_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg h-10 px-3 sm:px-4 bg-primary text-white text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
+              <div className="md:hidden flex items-center gap-1">
+                <button
+                  type="button"
+                  className="inline-flex items-center justify-center rounded-md h-8 px-2 sm:px-3 bg-primary text-white text-xs sm:text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
                 >
-                  <span className="hidden xs:inline">Register</span>
-                  <span className="xs:hidden">Join</span>
-                </a>
+                  <span>Register</span>
+                </button>
                 <MobileMenu />
               </div>
             </header>
 
             <main className="flex-grow">
               {/* HeroSection */}
-              <section id="overview" className="relative py-10 md:py-20 animate-fade-in-up">
+              <section id="overview" className="relative py-4 sm:py-8 md:py-16 animate-fade-in-up">
                 <div className="@container">
                   <div className="@[480px]:p-4">
                       <div 
-                      className="flex min-h-[360px] sm:min-h-[480px] md:min-h-[600px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center text-center px-4 py-10 @[480px]:px-10" 
-                      style={{
-                        backgroundImage: 'url("/hero-bg.jpg")',
-                      }}
+                      className="relative flex min-h-[220px] sm:min-h-[320px] md:min-h-[480px] flex-col gap-3 sm:gap-5 @[480px]:gap-8 rounded-lg sm:rounded-xl items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 @[480px]:px-10 overflow-hidden" 
                     >
-                      <div className="flex flex-col gap-3 sm:gap-4 max-w-4xl">
-                        <p className="text-white text-sm sm:text-base font-medium leading-normal @[480px]:text-lg">Centre for Integrative Anti-Racism Studies</p>
-                        <h1 className="text-white text-3xl sm:text-4xl font-light leading-tight tracking-[-0.033em] @[480px]:text-5xl md:text-6xl @[480px]:font-light @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                      <HeroSlideshow />
+                      <div className="relative z-10 flex flex-col gap-2 sm:gap-3 max-w-4xl px-1 sm:px-4">
+                        <p className="text-white text-[10px] sm:text-xs md:text-sm font-medium leading-normal">Centre for Integrative Anti-Racism Studies</p>
+                        <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight tracking-[-0.02em]">
                           13th Decolonizing Conference
                         </h1>
-                        <h2 className="text-white text-base sm:text-lg font-normal leading-normal @[480px]:text-xl @[480px]:font-normal @[480px]:leading-normal">
+                        <h2 className="text-white text-[10px] sm:text-xs md:text-sm lg:text-base font-normal leading-snug">
                           COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY, RESISTANCE, AND LIBERATORY POSSIBILITIES
                         </h2>
-                        <p className="text-white/80 text-xs sm:text-sm font-normal leading-normal @[480px]:text-base">
+                        <p className="text-white/80 text-[9px] sm:text-xs font-normal leading-normal">
                           March 12-14, 2026 | OISE, University of Toronto
                         </p>
                       </div>
@@ -230,11 +216,11 @@ export default function Home() {
               </section>
 
               {/* Content Section */}
-              <section id="why-now" className="py-8 sm:py-10 md:py-16 px-4">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-12">
+              <section id="why-now" className="py-4 sm:py-8 md:py-12 px-1 sm:px-2">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 sm:gap-5 lg:gap-10">
                   {/* SectionHeader */}
                   <div className="lg:col-span-2 animate-fade-in-up">
-                    <h2 className="text-text-light text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-[-0.015em]">Why This Conference Now?</h2>
+                    <h2 className="text-foreground text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight tracking-[-0.015em]">Why This Conference Now?</h2>
                     {/* Logo below heading: hidden on very small screens, centered under the subtitle */}
                     <div className="mt-4 sm:mt-6 hidden sm:flex w-full items-center justify-center">
                       <Image
@@ -249,25 +235,19 @@ export default function Home() {
                     </div>
                   </div>
                   {/* BodyText */}
-                  <div className="lg:col-span-3 space-y-3 sm:space-y-4 animate-fade-in-up">
-                    <p className="text-text-light/80 text-sm sm:text-base font-normal leading-relaxed">
+                  <div className="lg:col-span-3 space-y-2 sm:space-y-3 animate-fade-in-up">
+                    <p className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
                       In a world grappling with the enduring legacies of colonialism, this conference provides a critical space for dialogue, reflection, and action. We convene to challenge the structures that perpetuate coloniality and to amplify the voices of resistance that forge paths toward liberatory futures. This gathering is a call to scholars, activists, artists, and community members to collectively unmask ongoing colonial ruptures and imagine possibilities for profound, sustainable change and regeneration.
                     </p>
                     {/* ButtonGroup */}
-                    <div className="flex justify-stretch pt-3 sm:pt-4">
-                      <div className="flex flex-1 gap-2 sm:gap-3 flex-wrap justify-start">
-                        <a href="#call-for-abstracts" className="flex min-w-[120px] flex-1 sm:flex-initial cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 sm:h-12 px-4 sm:px-5 bg-primary text-white text-sm sm:text-base font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all">
-                          <span className="truncate">Submit an Abstract</span>
+                    <div className="pt-2 sm:pt-4">
+                      <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                        <a href="#call-for-abstracts" className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]">
+                          Submit an Abstract
                         </a>
-                        {/* UPDATED: Content Section Register Button */}
-                        <a 
-                          href={REGISTRATION_URL}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex min-w-[120px] flex-1 sm:flex-initial cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 sm:h-12 px-4 sm:px-5 bg-primary/20 text-text-light text-sm sm:text-base font-medium leading-normal tracking-[0.015em] hover:bg-primary/30 transition-all"
-                        >
-                          <span className="truncate">Register Now</span>
-                        </a>
+                        <button type="button" className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary/20 text-foreground text-xs sm:text-sm font-medium hover:bg-primary/30 transition-all active:scale-[0.98]">
+                          Register Now
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -275,15 +255,15 @@ export default function Home() {
               </section>
 
               {/* Partner Logos Banner */}
-              <section id="partners" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background-light -mx-4 sm:-mx-8 md:-mx-16 lg:-mx-24 xl:-mx-40">
+              <section id="partners" className="py-6 sm:py-10 md:py-16 lg:py-24 bg-gray-50 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32">
                 <div className="w-full">
-                  <h3 className="text-center text-text-light text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-8 sm:pb-12">
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-12">
                     In Collaboration With
                   </h3>
                   <div className="relative w-full overflow-hidden">
-                    <div className="carousel-scroll flex gap-6 md:gap-16 items-center py-4 md:py-0">
+                    <div className="carousel-scroll flex gap-4 sm:gap-6 md:gap-16 items-center py-2 sm:py-4 md:py-0">
                       {[...partners, ...partners].map((partner, i) => (
-                        <div key={`${partner.name}-${i}`} className="flex-shrink-0 w-28 sm:w-40 md:w-48 h-16 sm:h-24 md:h-28 flex items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 mx-3">
+                        <div key={`${partner.name}-${i}`} className="flex-shrink-0 w-20 sm:w-32 md:w-48 h-12 sm:h-20 md:h-28 flex items-center justify-center rounded-lg p-1 sm:p-2 md:p-4 mx-2 sm:mx-3">
                           {partner.logo ? (
                             <Image
                               src={partner.logo}
@@ -306,15 +286,15 @@ export default function Home() {
               </section>
 
               {/* Image Banner/Carousel Section */}
-              <section id="gallery" className="py-8 sm:py-10 md:py-16 animate-fade-in-up">
+              <section id="gallery" className="py-6 sm:py-10 md:py-16 animate-fade-in-up">
                 <div className="w-full overflow-hidden">
-                  <h3 className="text-center text-text-light text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8">From Our Past Gatherings</h3>
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-4 sm:pb-6 md:pb-8">From Our Past Gatherings</h3>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 md:gap-4 px-4">
+                  <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1 sm:gap-2 md:gap-3 px-1 sm:px-4">
                     {GALLERY_IMAGES.slice(0, visibleCount).map((src, idx) => (
-                      <div key={src} className="aspect-w-1 aspect-h-1">
+                      <div key={src} className="aspect-square">
                         <div
-                          className="relative h-full w-full rounded-lg overflow-hidden bg-gray-100"
+                          className="relative w-full h-full rounded overflow-hidden bg-gray-100"
                           style={{ cursor: 'pointer' }}
                           onClick={() => { setLightboxIndex(idx); setLightboxOpen(true); }}
                         >
@@ -348,7 +328,7 @@ export default function Home() {
                     >
                       {visibleCount >= GALLERY_IMAGES.length ? "All images loaded" : "Load more"}
                     </button>
-                    <div className="text-sm text-text-light/60 mt-2">Showing {visibleCount} of {GALLERY_IMAGES.length}</div>
+                    <div className="text-sm text-foreground/60 mt-2">Showing {visibleCount} of {GALLERY_IMAGES.length}</div>
                   </div>
                 </div>
               </section>
@@ -363,11 +343,11 @@ export default function Home() {
               )}
 
               {/* Conference Theme Section */}
-              <section id="about" className="py-8 sm:py-10 md:py-16 px-4">
+              <section id="about" className="py-4 sm:py-8 md:py-14 px-1 sm:px-2">
                 <div className="max-w-5xl mx-auto">
                   {/* Section Header */}
-                  <div className="text-center mb-8 sm:mb-10 md:mb-12 animate-fade-in-up">
-                    <h2 className="text-text-light dark:text-text-dark text-2xl sm:text-3xl md:text-4xl font-light leading-tight tracking-[-0.015em] mb-4">
+                  <div className="text-center mb-4 sm:mb-8 md:mb-10 animate-fade-in-up">
+                    <h2 className="text-foreground dark:text-text-dark text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
                       About the Conference
                     </h2>
                     <div className="w-20 h-1 bg-primary mx-auto"></div>
@@ -376,10 +356,10 @@ export default function Home() {
                   {/* Conference Overview */}
                   <div className="space-y-6 sm:space-y-8">
                     <div className="animate-fade-in-up">
-                      <h3 className="text-text-light dark:text-text-dark text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] mb-3 sm:mb-4">
+                      <h3 className="text-foreground dark:text-text-dark text-base sm:text-lg md:text-xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
                         What Conversations
                       </h3>
-                      <div className="space-y-3 sm:space-y-4 text-text-light/80 dark:text-text-dark/80 text-sm sm:text-base font-normal leading-relaxed">
+                      <div className="space-y-2 sm:space-y-3 text-foreground/80 dark:text-text-dark/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
                         <p>
                           Working through anti- and decolonial lenses, the conference encourages dialectical and conjunctural analyses that connect histories, ideas, events, and practices that have shaped human growth and continue to do so (see Hall, 1989). The conference will be a space to advance critical anti-colonial knowledge, critique the present, and reimagine the world grounded in &ldquo;home-grown cultural perspectives&rdquo; (Yankah, 2004, p. 25). We do not aim solely to resist; rather, we seek to build new futures that challenge dominant and colonial ways of knowing and being.
                         </p>
@@ -393,11 +373,11 @@ export default function Home() {
                     </div>
 
                     {/* Defining Features */}
-                    <div className="animate-fade-in-up bg-card-light rounded-xl p-5 sm:p-6 md:p-8 border border-border-light">
-                      <h3 className="text-text-light text-xl sm:text-2xl font-light leading-tight tracking-[-0.015em] mb-3 sm:mb-4">
+                    <div className="animate-fade-in-up bg-card-light rounded-lg p-3 sm:p-5 md:p-6 border border-border-light">
+                      <h3 className="text-foreground text-base sm:text-lg md:text-xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
                         Defining Features
                       </h3>
-                      <p className="text-text-light/80 text-sm sm:text-base font-normal leading-relaxed">
+                      <p className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
                         As a defining feature, the conference calls for learners and community workers to reject performative intellectualism and politics and instead create communities and uphold academic mentorship - specifically holding each other up rather than tearing each other down. It is urgent for us to reject colonial binaries that promote &ldquo;thinking in hierarchies&rdquo;, eradicate toxicity and dehumanization and see education and social justice work as foundational to human liberation. Together, we aim to resist hate, violence, oppression and genocide within the corollary of colonialism by bridging the gaps between scholarship, activism and social politics.
                       </p>
                     </div>
@@ -406,17 +386,17 @@ export default function Home() {
               </section>
 
               {/* Call for Abstracts */}
-              <section id="call-for-abstracts" className="py-12 sm:py-16 md:py-24 lg:py-32 px-4">
+              <section id="call-for-abstracts" className="py-6 sm:py-10 md:py-16 lg:py-24 px-1 sm:px-2">
                 <div className="max-w-2xl mx-auto">
                   {/* Header */}
-                  <div className="text-center mb-12 sm:mb-16 md:mb-20 animate-fade-in-up">
-                    <p className="text-primary text-xs uppercase tracking-[0.2em] mb-6 sm:mb-8">
+                  <div className="text-center mb-6 sm:mb-10 md:mb-16 animate-fade-in-up">
+                    <p className="text-primary text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.1em] sm:tracking-[0.15em] mb-3 sm:mb-5 md:mb-6">
                       Call for Papers & Participation
                     </p>
-                    <h2 className="text-text-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light leading-tight tracking-tight mb-6 sm:mb-8">
+                    <h2 className="text-foreground text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-tight tracking-tight mb-3 sm:mb-5 md:mb-6">
                       Build liberatory futures with us
                     </h2>
-                    <p className="text-text-light/70 text-base sm:text-lg leading-relaxed">
+                    <p className="text-foreground/70 text-xs sm:text-sm md:text-base leading-relaxed">
                       Building on the conference&rsquo;s commitment to de/anti-colonial praxis, we invite papers and creative contributions that examine the intersections of coloniality, resistance, and liberation across educational, cultural, and political contexts.
                     </p>
                   </div>
@@ -429,11 +409,11 @@ export default function Home() {
                   </div>
 
                   {/* Guiding Questions */}
-                  <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up">
-                    <h3 className="text-text-light text-xl sm:text-2xl font-light mb-6 sm:mb-8 text-center">
+                  <div className="mb-8 sm:mb-12 md:mb-16 animate-fade-in-up">
+                    <h3 className="text-foreground text-base sm:text-lg md:text-xl font-light mb-4 sm:mb-6 text-center">
                       Guiding Questions
                     </h3>
-                    <div className="space-y-4 sm:space-y-6 text-text-light/80 text-sm sm:text-base leading-relaxed">
+                    <div className="space-y-3 sm:space-y-4 text-foreground/80 text-xs sm:text-sm md:text-base leading-relaxed">
                       <p>How can we build anti-colonial solidarities rooted in radical hope and futurity?</p>
                       <p>How do we deploy critical understandings and literacies of Land&mdash;and its earthly teachings of relationality, sharing, reciprocity, connection, and mutual interdependence&mdash;to subvert colonial hierarchies of schooling and education and foster social responsibility (see Dei, 2008)?</p>
                       <p>How do we reclaim our resistive subjectivities and continue our ancestral struggles for liberation and capacitate abolitionist politics?</p>
@@ -447,24 +427,24 @@ export default function Home() {
 
                   {/* Submission Guidelines */}
                   <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up">
-                    <h3 className="text-text-light text-xl sm:text-2xl font-light mb-6 sm:mb-8 text-center">
+                    <h3 className="text-foreground text-xl sm:text-2xl font-light mb-6 sm:mb-8 text-center">
                       Submission Guidelines
                     </h3>
-                    <div className="space-y-6 sm:space-y-8 text-text-light/80">
+                    <div className="space-y-6 sm:space-y-8 text-foreground/80">
                       <div className="text-center">
-                        <p className="text-text-light font-medium mb-2">Abstract Length</p>
+                        <p className="text-foreground font-medium mb-2">Abstract Length</p>
                         <p className="text-sm">250&ndash;300 words outlining purpose, method, and contribution</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-text-light font-medium mb-2">Paper Length</p>
+                        <p className="text-foreground font-medium mb-2">Paper Length</p>
                         <p className="text-sm">Full papers (optional) up to 4,000 words</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-text-light font-medium mb-2">Presentation Formats</p>
+                        <p className="text-foreground font-medium mb-2">Presentation Formats</p>
                         <p className="text-sm">Papers, panels, workshops, performances, dialogues, and community-engaged sessions</p>
                       </div>
                       <div className="text-center">
-                        <p className="text-text-light font-medium mb-2">Evaluation Criteria</p>
+                        <p className="text-foreground font-medium mb-2">Evaluation Criteria</p>
                         <p className="text-sm">Alignment with theme, originality, clarity, community accountability, and transformative potential</p>
                       </div>
                     </div>
@@ -475,12 +455,12 @@ export default function Home() {
 
                   {/* Key Dates */}
                   <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up text-center">
-                    <h3 className="text-text-light text-xl sm:text-2xl font-light mb-6 sm:mb-8">
+                    <h3 className="text-foreground text-xl sm:text-2xl font-light mb-6 sm:mb-8">
                       Key Dates
                     </h3>
-                    <div className="space-y-3 sm:space-y-4 text-text-light/80 text-sm sm:text-base">
-                      <p><span className="text-text-light dark:text-text-dark font-medium">Deadline:</span> January 12, 2025 at 11:59 PM EST</p>
-                      <p><span className="text-text-light dark:text-text-dark font-medium">Notification:</span> February 10, 2025</p>
+                    <div className="space-y-3 sm:space-y-4 text-foreground/80 text-sm sm:text-base">
+                      <p><span className="text-foreground dark:text-text-dark font-medium">Deadline:</span> January 12, 2025 at 11:59 PM EST</p>
+                      <p><span className="text-foreground dark:text-text-dark font-medium">Notification:</span> February 10, 2025</p>
                     </div>
                   </div>
 
@@ -489,10 +469,10 @@ export default function Home() {
 
                   {/* Submit */}
                   <div className="mb-12 sm:mb-16 md:mb-20 animate-fade-in-up text-center">
-                    <h3 className="text-text-light text-xl sm:text-2xl font-light mb-6 sm:mb-8">
+                    <h3 className="text-foreground text-xl sm:text-2xl font-light mb-6 sm:mb-8">
                       How to Submit
                     </h3>
-                    <p className="text-text-light/80 text-sm sm:text-base mb-4 sm:mb-6">
+                    <p className="text-foreground/80 text-sm sm:text-base mb-4 sm:mb-6">
                       Send your abstract and supporting materials via email
                     </p>
                     <a href="mailto:ciars.conference@utoronto.ca" className="inline-block text-primary text-lg sm:text-xl underline underline-offset-8 hover:text-primary/80 transition-colors break-all">
@@ -509,7 +489,7 @@ export default function Home() {
 
                   {/* Accessibility */}
                   <div className="text-center animate-fade-in-up">
-                    <p className="text-text-light/60 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto">
+                    <p className="text-foreground/60 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto">
                       We welcome multi-modal, community-engaged, and creative proposals that honour accessibility, language diversity, and collective learning practices. Let us know how we can support your participation.
                     </p>
                   </div>

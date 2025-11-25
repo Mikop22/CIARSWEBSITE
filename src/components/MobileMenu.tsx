@@ -1,27 +1,34 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
-interface NavLink {
-  name: string;
-  href: string;
-}
-
-const defaultNavLinks: NavLink[] = [
-    { href: '#overview', name: 'Overview' },
-    { href: '#why-now', name: 'Why Now' },
-    { href: '#partners', name: 'Partners' },
-    { href: '#gallery', name: 'Gallery' },
-    { href: '#about', name: 'Theme' },
-    { href: '#call-for-abstracts', name: 'Call for Papers' },
-];
-
-export default function MobileMenu({ navLinks = defaultNavLinks }: { navLinks?: NavLink[] }) {
+export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const closeMenu = () => setIsOpen(false);
+
+  const menuItems = [
+    { href: '#overview', label: 'Overview' },
+    { href: '#why-now', label: 'Why Now' },
+    { href: '#partners', label: 'Partners' },
+    { href: '#gallery', label: 'Gallery' },
+    { href: '#about', label: 'Theme' },
+    { href: '#call-for-abstracts', label: 'Call for Papers' },
+  ];
 
   return (
     <>
@@ -29,7 +36,7 @@ export default function MobileMenu({ navLinks = defaultNavLinks }: { navLinks?: 
       <button
         type="button"
         onClick={toggleMenu}
-        className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg text-text-light dark:text-text-dark hover:bg-card-light dark:hover:bg-card-dark transition-colors"
+        className="md:hidden inline-flex items-center justify-center h-11 w-11 rounded-lg text-foreground dark:text-text-dark hover:bg-gray-100 dark:hover:bg-card-dark transition-colors active:scale-95"
         aria-label="Toggle menu"
         aria-expanded={isOpen}
       >
@@ -61,15 +68,15 @@ export default function MobileMenu({ navLinks = defaultNavLinks }: { navLinks?: 
           />
 
           {/* Menu Panel */}
-          <div className="fixed inset-y-0 right-0 w-64 bg-background-light dark:bg-background-dark shadow-2xl z-50 md:hidden transform transition-transform duration-300 ease-in-out">
+          <div className="fixed inset-y-0 right-0 w-[280px] max-w-[85vw] bg-white dark:bg-background-dark shadow-2xl z-50 md:hidden transform transition-transform duration-300 ease-in-out">
             <div className="flex flex-col h-full">
               {/* Menu Header */}
-              <div className="flex items-center justify-between p-4 border-b border-border-light dark:border-border-dark">
-                <h2 className="text-lg font-bold text-text-light dark:text-text-dark">Menu</h2>
+              <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-border-dark">
+                <h2 className="text-lg font-bold text-foreground dark:text-text-dark">Menu</h2>
                 <button
                   type="button"
                   onClick={closeMenu}
-                  className="inline-flex items-center justify-center h-10 w-10 rounded-lg text-text-light dark:text-text-dark hover:bg-card-light dark:hover:bg-card-dark transition-colors"
+                  className="inline-flex items-center justify-center h-11 w-11 rounded-lg text-foreground dark:text-text-dark hover:bg-gray-100 dark:hover:bg-card-dark transition-colors active:scale-95"
                   aria-label="Close menu"
                 >
                   <svg
@@ -89,14 +96,14 @@ export default function MobileMenu({ navLinks = defaultNavLinks }: { navLinks?: 
               {/* Menu Items */}
               <nav className="flex-1 overflow-y-auto py-4">
                 <ul className="space-y-1">
-                  {navLinks.map((item) => (
+                  {menuItems.map((item) => (
                     <li key={item.href}>
                       <a
                         href={item.href}
                         onClick={closeMenu}
-                        className="block px-4 py-3 text-text-light dark:text-text-dark hover:bg-card-light dark:hover:bg-card-dark hover:text-primary dark:hover:text-primary transition-colors font-medium"
+                        className="block px-4 py-4 text-foreground dark:text-text-dark hover:bg-gray-100 dark:hover:bg-card-dark hover:text-primary dark:hover:text-primary transition-colors font-medium text-base active:bg-gray-200"
                       >
-                        {item.name}
+                        {item.label}
                       </a>
                     </li>
                   ))}
@@ -104,15 +111,14 @@ export default function MobileMenu({ navLinks = defaultNavLinks }: { navLinks?: 
               </nav>
 
               {/* Register Button in Menu */}
-              <div className="p-4 border-t border-border-light dark:border-border-dark">
-                <a
-                  href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center rounded-lg h-12 px-4 bg-primary text-white text-base font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
+              <div className="p-4 border-t border-gray-200 dark:border-border-dark">
+                <button
+                  type="button"
+                  onClick={closeMenu}
+                  className="w-full flex items-center justify-center rounded-lg h-14 px-4 bg-primary text-white text-base font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all active:scale-[0.98]"
                 >
                   Register
-                </a>
+                </button>
               </div>
             </div>
           </div>

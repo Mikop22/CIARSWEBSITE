@@ -2,15 +2,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f8f6f6;
-  --foreground: #1b110d;
+  --background: #1a1a1a;
+  --foreground: #f8f6f6;
   --primary: #ec4913;
-  --card: #fcf9f8;
-  --border: #f3eae7;
+  --card: #2a1a14;
+  --border: #3f2d26;
 }
 
 @theme inline {
   --color-primary: var(--primary);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
   --color-background-light: #f8f6f6;
   --color-background-dark: #221510;
   --color-text-light: #1b110d;
@@ -54,6 +56,14 @@ html {
   scroll-padding-top: 80px;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
+  font-size: 16px;
+  touch-action: manipulation;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -63,7 +73,7 @@ html {
 }
 
 body {
-  background: var(--background);
+  background: #f0f0f0;
   color: var(--foreground);
   font-family: var(--font-be-vietnam-pro), sans-serif;
   transition: background-color 200ms ease, color 200ms ease;
