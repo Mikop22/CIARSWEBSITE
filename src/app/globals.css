@@ -73,7 +73,7 @@ html {
 }
 
 body {
-  background: #f0f0f0;
+  background: #fbf0db;
   color: var(--foreground);
   font-family: var(--font-be-vietnam-pro), sans-serif;
   transition: background-color 200ms ease, color 200ms ease;
