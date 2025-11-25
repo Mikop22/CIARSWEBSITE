@@ -256,7 +256,7 @@ export default function Home() {
               </section>
 
               {/* Partner Logos Banner */}
-              <section id="partners" className="py-6 sm:py-10 md:py-16 lg:py-24 bg-gray-50 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32">
+              <section id="partners" className="py-6 sm:py-10 md:py-16 lg:py-24 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32">
                 <div className="w-full">
                   <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-12">
                     In Collaboration With
