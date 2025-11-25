@@ -112,13 +112,15 @@ export default function MobileMenu() {
 
               {/* Register Button in Menu */}
               <div className="p-4 border-t border-gray-200 dark:border-border-dark">
-                <button
-                  type="button"
+                <a
+                  href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={closeMenu}
                   className="w-full flex items-center justify-center rounded-lg h-14 px-4 bg-primary text-white text-base font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all active:scale-[0.98]"
                 >
                   Register
-                </button>
+                </a>
               </div>
             </div>
           </div>

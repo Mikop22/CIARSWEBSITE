@@ -171,20 +171,24 @@ export default function Home() {
                     </a>
                   </li>
                 </ul>
-                <button
-                  type="button"
+                <a
+                  href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex min-w-[84px] max-w-[480px] items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
                 >
                   <span className="truncate">Register</span>
-                </button>
+                </a>
               </nav>
               <div className="md:hidden flex items-center gap-1">
-                <button
-                  type="button"
+                <a
+                  href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-md h-8 px-2 sm:px-3 bg-primary text-white text-xs sm:text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
                 >
                   <span>Register</span>
-                </button>
+                </a>
                 <MobileMenu />
               </div>
             </header>
@@ -195,7 +199,7 @@ export default function Home() {
                 <div className="@container">
                   <div className="@[480px]:p-4">
                       <div 
-                      className="relative flex min-h-[220px] sm:min-h-[320px] md:min-h-[480px] flex-col gap-3 sm:gap-5 @[480px]:gap-8 rounded-lg sm:rounded-xl items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 @[480px]:px-10 overflow-hidden" 
+                      className="relative flex aspect-video flex-col gap-3 sm:gap-5 @[480px]:gap-8 rounded-lg sm:rounded-xl items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 @[480px]:px-10 overflow-hidden" 
                     >
                       <HeroSlideshow />
                       <div className="relative z-10 flex flex-col gap-2 sm:gap-3 max-w-4xl px-1 sm:px-4">
@@ -245,9 +249,14 @@ export default function Home() {
                         <a href="#call-for-abstracts" className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]">
                           Submit an Abstract
                         </a>
-                        <button type="button" className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary/20 text-foreground text-xs sm:text-sm font-medium hover:bg-primary/30 transition-all active:scale-[0.98]">
+                        <a 
+                          href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary/20 text-foreground text-xs sm:text-sm font-medium hover:bg-primary/30 transition-all active:scale-[0.98]"
+                        >
                           Register Now
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
