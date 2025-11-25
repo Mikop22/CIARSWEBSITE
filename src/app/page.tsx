@@ -187,7 +187,7 @@ export default function Home() {
 
       <div className="layout-container flex h-full grow flex-col w-full max-w-full">
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-1 justify-center">
-          <div className="layout-content-container flex flex-col max-w-7xl flex-1">
+          <div className="layout-content-container flex flex-col max-w-7xl flex-1 w-full">
             <main className="flex-grow">
               {/* HeroSection */}
               <section id="overview" className="relative pb-2 sm:pb-4 md:pb-6 animate-fade-in-up">
@@ -219,7 +219,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 sm:gap-5 lg:gap-10">
                   {/* SectionHeader */}
                   <div className="lg:col-span-2 animate-fade-in-up">
-                    <h2 className="text-foreground text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight tracking-[-0.015em]">Why This Conference Now?</h2>
+                    <h2 className="text-foreground text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight tracking-[-0.015em] break-words">Why This Conference Now?</h2>
                     {/* Logo below heading: hidden on very small screens, centered under the subtitle */}
                     <div className="mt-4 sm:mt-6 hidden sm:flex w-full items-center justify-center">
                       <Image
