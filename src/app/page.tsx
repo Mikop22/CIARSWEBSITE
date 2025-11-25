@@ -117,20 +117,20 @@ export default function Home() {
       <style>{carouselStyles}</style>
       <FloatingRegisterButton />
       {/* TopNavBar - Outside padded container for full width */}
-      <header className="sticky top-0 z-30 bg-[#fbf0db] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-2 sm:py-3">
-        <div className="flex items-center gap-1 sm:gap-2">
-          <div className="size-10 sm:size-12 text-primary flex items-center justify-center">
+      <header className="sticky top-0 z-30 bg-[#fbf0db] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-3 sm:py-4">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="size-14 sm:size-16 md:size-20 text-primary flex items-center justify-center">
             <Image
               src="/logotrans.png"
               alt="logo"
-              width={96}
-              height={96}
-              sizes="(max-width:640px) 40px, (max-width:1024px) 48px, 56px"
-              className="w-10 sm:w-12 h-auto"
+              width={128}
+              height={128}
+              sizes="(max-width:640px) 56px, (max-width:768px) 64px, 80px"
+              className="w-14 sm:w-16 md:w-20 h-auto"
               priority
             />
           </div>
-          <h2 className="text-foreground text-sm sm:text-base font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
+          <h2 className="text-foreground text-base sm:text-lg md:text-xl font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
         </div>
         <nav
           className="hidden md:flex flex-1 items-center justify-end gap-8"
@@ -186,15 +186,15 @@ export default function Home() {
       </header>
 
       <div className="layout-container flex h-full grow flex-col w-full max-w-full">
-        <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-1 justify-center py-2 sm:py-4">
+        <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-1 justify-center">
           <div className="layout-content-container flex flex-col max-w-7xl flex-1">
             <main className="flex-grow">
               {/* HeroSection */}
-              <section id="overview" className="relative py-4 sm:py-8 md:py-16 animate-fade-in-up">
+              <section id="overview" className="relative pb-2 sm:pb-4 md:pb-6 animate-fade-in-up">
                 <div className="@container">
-                  <div className="@[480px]:p-4">
+                  <div className="@[480px]:px-4 @[480px]:pb-4">
                     <div 
-                      className="relative flex aspect-video flex-col gap-3 sm:gap-5 @[480px]:gap-8 rounded-lg sm:rounded-xl items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 @[480px]:px-10 overflow-hidden" 
+                      className="relative flex aspect-video flex-col gap-3 sm:gap-5 @[480px]:gap-8 rounded-none sm:rounded-xl items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 @[480px]:px-10 overflow-hidden" 
                     >
                       <HeroSlideshow />
                       <div className="relative z-10 flex flex-col gap-2 sm:gap-3 max-w-4xl px-1 sm:px-4">
