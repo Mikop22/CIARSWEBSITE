@@ -122,15 +122,15 @@ export default function Home() {
       {/* HeroSection - Full width, outside padded container */}
       <section id="overview" className="relative animate-fade-in-up w-full">
         <div 
-          className="relative flex aspect-video flex-col gap-3 sm:gap-5 md:gap-8 items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 md:px-10 overflow-hidden" 
+          className="relative flex aspect-video flex-col gap-2 xs:gap-3 sm:gap-5 md:gap-8 items-center justify-center text-center px-4 sm:px-6 py-6 sm:py-8 md:px-10 overflow-hidden" 
         >
           <HeroSlideshow />
-          <div className="relative z-10 flex flex-col gap-2 sm:gap-3 max-w-4xl px-1 sm:px-4">
+          <div className="relative z-10 flex flex-col gap-2 sm:gap-3 max-w-4xl px-2 sm:px-4">
             <p className="text-white text-[10px] sm:text-xs md:text-sm font-medium leading-normal">Centre for Integrative Anti-Racism Studies</p>
-            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight tracking-[-0.02em]">
+            <h1 className="text-white text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight tracking-[-0.02em]">
               13th Decolonizing Conference
             </h1>
-            <h2 className="text-white text-[10px] sm:text-xs md:text-sm lg:text-base font-normal leading-snug">
+            <h2 className="text-white text-[10px] xs:text-xs sm:text-sm md:text-base font-normal leading-snug px-1">
               COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY AND FOSTERING RESISTANCE AND LIBERATORY POSSIBILITIES
             </h2>
             <p className="text-white/80 text-xs sm:text-sm md:text-base font-normal leading-normal">
@@ -141,7 +141,7 @@ export default function Home() {
                 href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-md h-10 sm:h-11 px-4 sm:px-6 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]"
+                className="inline-flex items-center justify-center rounded-md min-h-[44px] h-10 sm:h-11 px-5 sm:px-6 bg-primary text-white text-sm sm:text-base font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]"
               >
                 Register Now
               </a>
@@ -156,8 +156,8 @@ export default function Home() {
             <main className="flex-grow">
 
               {/* Content Section */}
-              <section id="why-now" className="py-4 sm:py-8 md:py-12 px-1 sm:px-2">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 sm:gap-5 lg:gap-10">
+              <section id="why-now" className="py-6 sm:py-8 md:py-12 px-0 sm:px-2">
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-10">
                   {/* Logo Section */}
                   <div className="lg:col-span-2 animate-fade-in-up">
                     {/* Logo: hidden on very small screens, centered */}
@@ -174,8 +174,8 @@ export default function Home() {
                     </div>
                   </div>
                   {/* BodyText */}
-                  <div className="lg:col-span-3 space-y-2 sm:space-y-3 animate-fade-in-up">
-                    <p className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
+                  <div className="lg:col-span-3 space-y-3 sm:space-y-4 animate-fade-in-up">
+                    <p className="text-foreground/80 text-sm sm:text-base md:text-lg font-normal leading-relaxed">
                       In a world grappling with the enduring legacies of colonialism, this conference provides a critical space for dialogue, reflection, and action. We convene to challenge the structures that perpetuate coloniality and to amplify the voices of resistance that forge paths toward liberatory futures. This gathering is a call to scholars, activists, artists, and community members to collectively unmask ongoing colonial ruptures and imagine possibilities for profound, sustainable change and regeneration.
                     </p>
                     {/* ButtonGroup */}
@@ -185,7 +185,7 @@ export default function Home() {
                           href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center rounded-md h-10 sm:h-11 px-3 sm:px-4 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]"
+                          className="flex items-center justify-center rounded-md min-h-[44px] h-11 sm:h-12 px-4 sm:px-5 bg-primary text-white text-sm sm:text-base font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]"
                         >
                           Register Now
                         </a>
@@ -196,11 +196,11 @@ export default function Home() {
               </section>
 
               {/* Conference Theme Section */}
-              <section id="about" className="py-4 sm:py-8 md:py-14 px-1 sm:px-2">
+              <section id="about" className="py-6 sm:py-10 md:py-14 px-0 sm:px-2">
                 <div className="max-w-5xl mx-auto">
                   {/* Section Header */}
-                  <div className="text-center mb-4 sm:mb-8 md:mb-10 animate-fade-in-up">
-                    <h2 className="text-foreground dark:text-text-dark text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
+                  <div className="text-center mb-6 sm:mb-8 md:mb-10 animate-fade-in-up">
+                    <h2 className="text-foreground dark:text-text-dark text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-tight tracking-[-0.015em] mb-3 sm:mb-4">
                       About the Conference
                     </h2>
                     <div className="w-20 h-1 bg-primary mx-auto"></div>
@@ -209,10 +209,10 @@ export default function Home() {
                   {/* Conference Overview */}
                   <div className="space-y-6 sm:space-y-8">
                     <div className="animate-fade-in-up">
-                      <h3 className="text-foreground dark:text-text-dark text-base sm:text-lg md:text-xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
+                      <h3 className="text-foreground dark:text-text-dark text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] mb-3 sm:mb-4">
                         What Conversations
                       </h3>
-                      <div className="space-y-2 sm:space-y-3 text-foreground/80 dark:text-text-dark/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
+                      <div className="space-y-3 sm:space-y-4 text-foreground/80 dark:text-text-dark/80 text-sm sm:text-base md:text-lg font-normal leading-relaxed">
                         <p>
                           Working through anti- and decolonial lenses, the conference encourages dialectical and conjunctural analyses that connect histories, ideas, events, and practices that have shaped human growth and continue to do so (see Hall, 1989). The conference will be a space to advance critical anti-colonial knowledge, critique the present, and reimagine the world grounded in &ldquo;home-grown cultural perspectives&rdquo; (Yankah, 2004, p. 25). We do not aim solely to resist; rather, we seek to build new futures that challenge dominant and colonial ways of knowing and being.
                         </p>
@@ -226,11 +226,11 @@ export default function Home() {
                     </div>
 
                     {/* Defining Features */}
-                    <div className="animate-fade-in-up bg-card-light rounded-lg p-3 sm:p-5 md:p-6 border border-border-light">
-                      <h3 className="text-foreground text-base sm:text-lg md:text-xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
+                    <div className="animate-fade-in-up bg-card-light rounded-lg p-4 sm:p-5 md:p-6 border border-border-light">
+                      <h3 className="text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] mb-3 sm:mb-4">
                         Defining Features
                       </h3>
-                      <p className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
+                      <p className="text-foreground/80 text-sm sm:text-base md:text-lg font-normal leading-relaxed">
                         As a defining feature, the conference calls for learners and community workers to reject performative intellectualism and politics and instead create communities and uphold academic mentorship - specifically holding each other up rather than tearing each other down. It is urgent for us to reject colonial binaries that promote &ldquo;thinking in hierarchies&rdquo;, eradicate toxicity and dehumanization and see education and social justice work as foundational to human liberation. Together, we aim to resist hate, violence, oppression and genocide within the corollary of colonialism by bridging the gaps between scholarship, activism and social politics.
                       </p>
                     </div>
@@ -239,24 +239,24 @@ export default function Home() {
               </section>
 
               {/* Participants Section */}
-              <section id="participants" className="py-6 sm:py-10 md:py-14 px-1 sm:px-2 animate-fade-in-up">
+              <section id="participants" className="py-8 sm:py-12 md:py-14 px-0 sm:px-2 animate-fade-in-up">
                 <div className="max-w-3xl mx-auto text-center">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
+                  <h3 className="text-center text-foreground text-xl sm:text-2xl md:text-3xl font-light leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
                     Participants
                   </h3>
                   <div className="w-20 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
-                  <p className="text-foreground/80 text-sm sm:text-base md:text-lg leading-relaxed">
+                  <p className="text-foreground/80 text-base sm:text-lg md:text-xl leading-relaxed">
                     More information about presenters, keynotes, and plenary speakers coming soon
                   </p>
                 </div>
               </section>
 
               {/* Image Banner/Carousel Section */}
-              <section id="gallery" className="py-6 sm:py-10 md:py-16 animate-fade-in-up">
+              <section id="gallery" className="py-8 sm:py-12 md:py-16 animate-fade-in-up">
                 <div className="w-full overflow-hidden">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-4 sm:pb-6 md:pb-8">From Our Past Gatherings</h3>
+                  <h3 className="text-center text-foreground text-xl sm:text-2xl md:text-3xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-10">From Our Past Gatherings</h3>
 
-                  <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1 sm:gap-2 md:gap-3 px-1 sm:px-4">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 px-0 sm:px-2">
                     {GALLERY_IMAGES.slice(0, visibleCount).map((src, idx) => (
                       <div key={src} className="aspect-square">
                         <div
@@ -288,15 +288,15 @@ export default function Home() {
                   </div>
 
                   {/* Load more button */}
-                  <div className="flex flex-col items-center mt-6">
+                  <div className="flex flex-col items-center mt-6 sm:mt-8">
                     <button
                       onClick={() => setVisibleCount((c) => Math.min(GALLERY_IMAGES.length, c + IMAGES_PER_BATCH))}
                       disabled={visibleCount >= GALLERY_IMAGES.length}
-                      className="px-4 py-2 rounded-lg bg-primary text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                      className="min-h-[44px] px-5 py-2.5 rounded-lg bg-primary text-white text-sm sm:text-base font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
                     >
                       {visibleCount >= GALLERY_IMAGES.length ? "All images loaded" : "Load more"}
                     </button>
-                    <div className="text-sm text-foreground/60 mt-2">Showing {visibleCount} of {GALLERY_IMAGES.length}</div>
+                    <div className="text-sm sm:text-base text-foreground/60 mt-2">Showing {visibleCount} of {GALLERY_IMAGES.length}</div>
                   </div>
                 </div>
               </section>
@@ -311,13 +311,13 @@ export default function Home() {
               )}
 
               {/* Important Dates Section */}
-              <section id="important-dates" className="py-6 sm:py-10 md:py-14 px-1 sm:px-2 animate-fade-in-up">
+              <section id="important-dates" className="py-8 sm:py-12 md:py-14 px-0 sm:px-2 animate-fade-in-up">
                 <div className="max-w-3xl mx-auto text-center">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
+                  <h3 className="text-center text-foreground text-xl sm:text-2xl md:text-3xl font-light leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
                     Important Dates
                   </h3>
                   <div className="w-20 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
-                  <div className="space-y-2 sm:space-y-3 text-foreground/80 text-sm sm:text-base md:text-lg">
+                  <div className="space-y-3 sm:space-y-4 text-foreground/80 text-base sm:text-lg md:text-xl">
                     <p>
                       <span className="font-medium text-foreground">Deadline to submit abstracts:</span> November 14, 2025
                     </p>
@@ -329,15 +329,15 @@ export default function Home() {
               </section>
 
               {/* Partner Logos Banner */}
-              <section id="partners" className="py-6 sm:py-10 md:py-16 lg:py-24 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32">
+              <section id="partners" className="py-8 sm:py-12 md:py-16 lg:py-24 -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-16 xl:-mx-32">
                 <div className="w-full">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-12">
+                  <h3 className="text-center text-foreground text-xl sm:text-2xl md:text-3xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-12">
                     In Collaboration With
                   </h3>
                   <div className="relative w-full overflow-hidden">
-                    <div className="carousel-scroll flex gap-4 sm:gap-6 md:gap-16 items-center py-2 sm:py-4 md:py-0">
+                    <div className="carousel-scroll flex gap-6 sm:gap-8 md:gap-16 items-center py-2 sm:py-4 md:py-0">
                       {[...partners, ...partners].map((partner, i) => (
-                        <div key={`${partner.name}-${i}`} className="flex-shrink-0 w-20 sm:w-32 md:w-48 h-12 sm:h-20 md:h-28 flex items-center justify-center rounded-lg p-1 sm:p-2 md:p-4 mx-2 sm:mx-3">
+                        <div key={`${partner.name}-${i}`} className="flex-shrink-0 w-24 sm:w-32 md:w-48 h-16 sm:h-20 md:h-28 flex items-center justify-center rounded-lg p-2 sm:p-3 md:p-4 mx-2 sm:mx-3">
                           {partner.logo ? (
                             <Image
                               src={partner.logo}
@@ -348,7 +348,7 @@ export default function Home() {
                               priority={i === 0}
                             />
                           ) : (
-                            <span className="text-xs text-center font-medium text-gray-600">
+                            <span className="text-xs sm:text-sm text-center font-medium text-gray-600">
                               {partner.name}
                             </span>
                           )}
