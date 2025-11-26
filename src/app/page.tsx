@@ -199,7 +199,7 @@ export default function Home() {
             <h2 className="text-white text-[10px] sm:text-xs md:text-sm lg:text-base font-normal leading-snug">
               COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY, RESISTANCE, AND LIBERATORY POSSIBILITIES
             </h2>
-            <p className="text-white/80 text-[9px] sm:text-xs font-normal leading-normal">
+            <p className="text-white/80 text-xs sm:text-sm md:text-base font-normal leading-normal">
               March 12-14, 2026 | OISE, University of Toronto
             </p>
             <div className="pt-2 sm:pt-4">
