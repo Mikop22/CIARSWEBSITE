@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import FloatingRegisterButton from "@/components/FloatingRegisterButton";
-import MobileMenu from "@/components/MobileMenu";
+import StickyHeader from "@/components/StickyHeader";
 import Lightbox from "@/components/Lightbox";
 import HeroSlideshow from "@/components/HeroSlideshow";
 
@@ -116,74 +116,8 @@ export default function Home() {
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
       <style>{carouselStyles}</style>
       <FloatingRegisterButton />
-      {/* TopNavBar - Outside padded container for full width */}
-      <header className="bg-[#fbf0db] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-3 sm:py-4">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="size-14 sm:size-16 md:size-20 text-primary flex items-center justify-center">
-            <Image
-              src="/logotrans.png"
-              alt="logo"
-              width={128}
-              height={128}
-              sizes="(max-width:640px) 56px, (max-width:768px) 64px, 80px"
-              className="w-14 sm:w-16 md:w-20 h-auto"
-              priority
-            />
-          </div>
-          <h2 className="text-foreground text-base sm:text-lg md:text-xl font-bold leading-tight tracking-[-0.015em]">CIARS</h2>
-        </div>
-        <nav
-          className="hidden md:flex flex-1 items-center justify-end gap-8"
-          aria-label="Primary"
-        >
-                <ul className="flex items-center gap-9">
-                  <li>
-                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#overview">
-                      Overview
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#why-now">
-                      Why Now
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#partners">
-                      Partners
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#gallery">
-                      Gallery
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#about">
-                      Theme
-                    </a>
-                  </li>
-                </ul>
-                <a
-                  href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex min-w-[84px] max-w-[480px] items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
-                >
-                  <span className="truncate">Register</span>
-                </a>
-        </nav>
-        <div className="md:hidden flex items-center gap-1">
-          <a
-            href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-md h-8 px-2 sm:px-3 bg-primary text-white text-xs sm:text-sm font-medium leading-normal tracking-[0.015em] hover:bg-opacity-90 transition-all"
-          >
-            <span>Register</span>
-          </a>
-          <MobileMenu />
-        </div>
-      </header>
+      {/* TopNavBar - Sticky header that remains visible when scrolling */}
+      <StickyHeader />
 
       {/* HeroSection - Full width, outside padded container */}
       <section id="overview" className="relative animate-fade-in-up w-full">
