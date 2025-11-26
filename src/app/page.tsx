@@ -131,7 +131,7 @@ export default function Home() {
               13th Decolonizing Conference
             </h1>
             <h2 className="text-white text-[10px] sm:text-xs md:text-sm lg:text-base font-normal leading-snug">
-              COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY, RESISTANCE, AND LIBERATORY POSSIBILITIES
+              COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY AND FOSTERING RESISTANCE AND LIBERATORY POSSIBILITIES
             </h2>
             <p className="text-white/80 text-xs sm:text-sm md:text-base font-normal leading-normal">
               March 12-14, 2026 | OISE, University of Toronto
@@ -165,10 +165,10 @@ export default function Home() {
                       <Image
                         src="/logotrans.png"
                         alt="CIARS logo"
-                        width={220}
-                        height={220}
-                        sizes="(max-width:640px) 128px, (max-width:1024px) 176px, 220px"
-                        className="w-28 sm:w-44 h-auto object-contain"
+                        width={320}
+                        height={320}
+                        sizes="(max-width:640px) 180px, (max-width:1024px) 260px, 320px"
+                        className="w-44 sm:w-64 h-auto object-contain"
                         priority
                       />
                     </div>
@@ -235,6 +235,19 @@ export default function Home() {
                       </p>
                     </div>
                   </div>
+                </div>
+              </section>
+
+              {/* Participants Section */}
+              <section id="participants" className="py-6 sm:py-10 md:py-14 px-1 sm:px-2 animate-fade-in-up">
+                <div className="max-w-3xl mx-auto text-center">
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
+                    Participants
+                  </h3>
+                  <div className="w-20 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
+                  <p className="text-foreground/80 text-sm sm:text-base md:text-lg leading-relaxed">
+                    More information about presenters, keynotes, and plenary speakers coming soon
+                  </p>
                 </div>
               </section>
 
