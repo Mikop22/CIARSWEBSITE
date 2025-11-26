@@ -26,7 +26,7 @@ export default function StickyHeader() {
       <header
         className={`
           fixed top-0 left-0 right-0 z-50
-          flex items-center justify-between whitespace-nowrap
+          flex items-center justify-between
           border-b border-solid border-gray-300
           px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16
           transition-all duration-300 ease-in-out
@@ -36,8 +36,8 @@ export default function StickyHeader() {
           }
         `}
       >
-      <div className={`flex items-center gap-2 sm:gap-3 transition-all duration-300 ${isScrolled ? 'scale-95 origin-left' : ''}`}>
-        <div className={`text-primary flex items-center justify-center transition-all duration-300 ${isScrolled ? 'size-10 sm:size-12 md:size-14' : 'size-14 sm:size-16 md:size-20'}`}>
+      <div className={`flex items-center gap-2 sm:gap-3 transition-all duration-300 flex-shrink-0 max-w-[55%] lg:max-w-[45%] ${isScrolled ? 'scale-95 origin-left' : ''}`}>
+        <div className={`text-primary flex items-center justify-center transition-all duration-300 flex-shrink-0 ${isScrolled ? 'size-10 sm:size-12 md:size-14' : 'size-14 sm:size-16 md:size-20'}`}>
           <Image
             src="/logotrans.png"
             alt="logo"
