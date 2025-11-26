@@ -185,44 +185,41 @@ export default function Home() {
         </div>
       </header>
 
+      {/* HeroSection - Full width, outside padded container */}
+      <section id="overview" className="relative animate-fade-in-up w-full">
+        <div 
+          className="relative flex aspect-video flex-col gap-3 sm:gap-5 md:gap-8 items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 md:px-10 overflow-hidden" 
+        >
+          <HeroSlideshow />
+          <div className="relative z-10 flex flex-col gap-2 sm:gap-3 max-w-4xl px-1 sm:px-4">
+            <p className="text-white text-[10px] sm:text-xs md:text-sm font-medium leading-normal">Centre for Integrative Anti-Racism Studies</p>
+            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight tracking-[-0.02em]">
+              13th Decolonizing Conference
+            </h1>
+            <h2 className="text-white text-[10px] sm:text-xs md:text-sm lg:text-base font-normal leading-snug">
+              COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY, RESISTANCE, AND LIBERATORY POSSIBILITIES
+            </h2>
+            <p className="text-white/80 text-[9px] sm:text-xs font-normal leading-normal">
+              March 12-14, 2026 | OISE, University of Toronto
+            </p>
+            <div className="pt-2 sm:pt-4">
+              <a
+                href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-md h-10 sm:h-11 px-4 sm:px-6 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]"
+              >
+                Register Now
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="layout-container flex h-full grow flex-col w-full max-w-full">
         <div className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex flex-1 justify-center">
           <div className="layout-content-container flex flex-col max-w-7xl flex-1 w-full">
             <main className="flex-grow">
-              {/* HeroSection */}
-              <section id="overview" className="relative pb-2 sm:pb-4 md:pb-6 animate-fade-in-up">
-                <div className="@container">
-                  <div className="@[480px]:px-4 @[480px]:pb-4">
-                    <div 
-                      className="relative flex aspect-video flex-col gap-3 sm:gap-5 @[480px]:gap-8 rounded-none sm:rounded-xl items-center justify-center text-center px-2 sm:px-4 py-6 sm:py-8 @[480px]:px-10 overflow-hidden" 
-                    >
-                      <HeroSlideshow />
-                      <div className="relative z-10 flex flex-col gap-2 sm:gap-3 max-w-4xl px-1 sm:px-4">
-                        <p className="text-white text-[10px] sm:text-xs md:text-sm font-medium leading-normal">Centre for Integrative Anti-Racism Studies</p>
-                        <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight tracking-[-0.02em]">
-                          13th Decolonizing Conference
-                        </h1>
-                        <h2 className="text-white text-[10px] sm:text-xs md:text-sm lg:text-base font-normal leading-snug">
-                          COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY, RESISTANCE, AND LIBERATORY POSSIBILITIES
-                        </h2>
-                        <p className="text-white/80 text-[9px] sm:text-xs font-normal leading-normal">
-                          March 12-14, 2026 | OISE, University of Toronto
-                        </p>
-                        <div className="pt-2 sm:pt-4">
-                          <a
-                            href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center rounded-md h-10 sm:h-11 px-4 sm:px-6 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]"
-                          >
-                            Register Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
 
               {/* Content Section */}
               <section id="why-now" className="py-4 sm:py-8 md:py-12 px-1 sm:px-2">
@@ -264,94 +261,6 @@ export default function Home() {
                 </div>
               </section>
 
-              {/* Partner Logos Banner */}
-              <section id="partners" className="py-6 sm:py-10 md:py-16 lg:py-24 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32">
-                <div className="w-full">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-12">
-                    In Collaboration With
-                  </h3>
-                  <div className="relative w-full overflow-hidden">
-                    <div className="carousel-scroll flex gap-4 sm:gap-6 md:gap-16 items-center py-2 sm:py-4 md:py-0">
-                      {[...partners, ...partners].map((partner, i) => (
-                        <div key={`${partner.name}-${i}`} className="flex-shrink-0 w-20 sm:w-32 md:w-48 h-12 sm:h-20 md:h-28 flex items-center justify-center rounded-lg p-1 sm:p-2 md:p-4 mx-2 sm:mx-3">
-                          {partner.logo ? (
-                            <Image
-                              src={partner.logo}
-                              alt={partner.alt}
-                              width={192}
-                              height={112}
-                              className="h-full w-auto object-contain"
-                              priority={i === 0}
-                            />
-                          ) : (
-                            <span className="text-xs text-center font-medium text-gray-600">
-                              {partner.name}
-                            </span>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </section>
-
-              {/* Image Banner/Carousel Section */}
-              <section id="gallery" className="py-6 sm:py-10 md:py-16 animate-fade-in-up">
-                <div className="w-full overflow-hidden">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-4 sm:pb-6 md:pb-8">From Our Past Gatherings</h3>
-
-                  <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1 sm:gap-2 md:gap-3 px-1 sm:px-4">
-                    {GALLERY_IMAGES.slice(0, visibleCount).map((src, idx) => (
-                      <div key={src} className="aspect-square">
-                        <div
-                          className="relative w-full h-full rounded overflow-hidden bg-gray-100"
-                          style={{ cursor: 'pointer' }}
-                          onClick={() => { setLightboxIndex(idx); setLightboxOpen(true); }}
-                        >
-                          {/* blurred placeholder layer */}
-                          <div
-                            className={`absolute inset-0 bg-center bg-cover transform transition-all duration-500 ease-out ${loadedMap[idx] ? 'opacity-0 scale-105' : 'opacity-100 scale-105 filter blur-2xl'}`}
-                            style={{ backgroundImage: `url(${src})`, transitionDelay: `${(idx % IMAGES_PER_BATCH) * 60}ms` }}
-                          />
-
-                          {/* actual image */}
-                          <Image
-                            className={`relative h-full w-full object-cover transition-opacity duration-500 ${loadedMap[idx] ? 'opacity-100' : 'opacity-0'}`}
-                            alt=""
-                            src={src}
-                            width={400}
-                            height={300}
-                            loading="lazy"
-                            onLoadingComplete={() => markLoaded(idx)}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Load more button */}
-                  <div className="flex flex-col items-center mt-6">
-                    <button
-                      onClick={() => setVisibleCount((c) => Math.min(GALLERY_IMAGES.length, c + IMAGES_PER_BATCH))}
-                      disabled={visibleCount >= GALLERY_IMAGES.length}
-                      className="px-4 py-2 rounded-lg bg-primary text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
-                    >
-                      {visibleCount >= GALLERY_IMAGES.length ? "All images loaded" : "Load more"}
-                    </button>
-                    <div className="text-sm text-foreground/60 mt-2">Showing {visibleCount} of {GALLERY_IMAGES.length}</div>
-                  </div>
-                </div>
-              </section>
-
-              {lightboxOpen && (
-                <Lightbox
-                  images={GALLERY_IMAGES}
-                  index={lightboxIndex}
-                  onClose={() => setLightboxOpen(false)}
-                  onChange={(i) => setLightboxIndex(i)}
-                />
-              )}
-
               {/* Conference Theme Section */}
               <section id="about" className="py-4 sm:py-8 md:py-14 px-1 sm:px-2">
                 <div className="max-w-5xl mx-auto">
@@ -390,6 +299,96 @@ export default function Home() {
                       <p className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
                         As a defining feature, the conference calls for learners and community workers to reject performative intellectualism and politics and instead create communities and uphold academic mentorship - specifically holding each other up rather than tearing each other down. It is urgent for us to reject colonial binaries that promote &ldquo;thinking in hierarchies&rdquo;, eradicate toxicity and dehumanization and see education and social justice work as foundational to human liberation. Together, we aim to resist hate, violence, oppression and genocide within the corollary of colonialism by bridging the gaps between scholarship, activism and social politics.
                       </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Image Banner/Carousel Section */}
+              <section id="gallery" className="py-6 sm:py-10 md:py-16 animate-fade-in-up">
+                <div className="w-full overflow-hidden">
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-4 sm:pb-6 md:pb-8">From Our Past Gatherings</h3>
+
+                  <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1 sm:gap-2 md:gap-3 px-1 sm:px-4">
+                    {GALLERY_IMAGES.slice(0, visibleCount).map((src, idx) => (
+                      <div key={src} className="aspect-square">
+                        <div
+                          className="relative w-full h-full rounded overflow-hidden bg-gray-100"
+                          style={{ cursor: 'pointer' }}
+                          onClick={() => { setLightboxIndex(idx); setLightboxOpen(true); }}
+                          onContextMenu={(e) => e.preventDefault()}
+                        >
+                          {/* blurred placeholder layer */}
+                          <div
+                            className={`absolute inset-0 bg-center bg-cover transform transition-all duration-500 ease-out ${loadedMap[idx] ? 'opacity-0 scale-105' : 'opacity-100 scale-105 filter blur-2xl'}`}
+                            style={{ backgroundImage: `url(${src})`, transitionDelay: `${(idx % IMAGES_PER_BATCH) * 60}ms` }}
+                          />
+
+                          {/* actual image */}
+                          <Image
+                            className={`relative h-full w-full object-cover transition-opacity duration-500 pointer-events-none select-none ${loadedMap[idx] ? 'opacity-100' : 'opacity-0'}`}
+                            alt=""
+                            src={src}
+                            width={400}
+                            height={300}
+                            loading="lazy"
+                            onLoadingComplete={() => markLoaded(idx)}
+                            draggable={false}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Load more button */}
+                  <div className="flex flex-col items-center mt-6">
+                    <button
+                      onClick={() => setVisibleCount((c) => Math.min(GALLERY_IMAGES.length, c + IMAGES_PER_BATCH))}
+                      disabled={visibleCount >= GALLERY_IMAGES.length}
+                      className="px-4 py-2 rounded-lg bg-primary text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    >
+                      {visibleCount >= GALLERY_IMAGES.length ? "All images loaded" : "Load more"}
+                    </button>
+                    <div className="text-sm text-foreground/60 mt-2">Showing {visibleCount} of {GALLERY_IMAGES.length}</div>
+                  </div>
+                </div>
+              </section>
+
+              {lightboxOpen && (
+                <Lightbox
+                  images={GALLERY_IMAGES}
+                  index={lightboxIndex}
+                  onClose={() => setLightboxOpen(false)}
+                  onChange={(i) => setLightboxIndex(i)}
+                />
+              )}
+
+              {/* Partner Logos Banner */}
+              <section id="partners" className="py-6 sm:py-10 md:py-16 lg:py-24 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32">
+                <div className="w-full">
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-12">
+                    In Collaboration With
+                  </h3>
+                  <div className="relative w-full overflow-hidden">
+                    <div className="carousel-scroll flex gap-4 sm:gap-6 md:gap-16 items-center py-2 sm:py-4 md:py-0">
+                      {[...partners, ...partners].map((partner, i) => (
+                        <div key={`${partner.name}-${i}`} className="flex-shrink-0 w-20 sm:w-32 md:w-48 h-12 sm:h-20 md:h-28 flex items-center justify-center rounded-lg p-1 sm:p-2 md:p-4 mx-2 sm:mx-3">
+                          {partner.logo ? (
+                            <Image
+                              src={partner.logo}
+                              alt={partner.alt}
+                              width={192}
+                              height={112}
+                              className="h-full w-auto object-contain"
+                              priority={i === 0}
+                            />
+                          ) : (
+                            <span className="text-xs text-center font-medium text-gray-600">
+                              {partner.name}
+                            </span>
+                          )}
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
