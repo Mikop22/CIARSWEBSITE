@@ -256,7 +256,7 @@ export default function Home() {
                 <div className="w-full overflow-hidden">
                   <h3 className="text-center text-foreground text-xl sm:text-2xl md:text-3xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-10">From Our Past Gatherings</h3>
 
-                  <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 px-0 sm:px-2">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1.5 sm:gap-2 md:gap-3 px-0 sm:px-2">
                     {GALLERY_IMAGES.slice(0, visibleCount).map((src, idx) => (
                       <div key={src} className="aspect-square">
                         <div
