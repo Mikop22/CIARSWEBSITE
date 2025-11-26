@@ -23,10 +23,10 @@ export default function MobileMenu() {
 
   const menuItems = [
     { href: '#overview', label: 'Overview' },
-    { href: '#why-now', label: 'Why Now' },
-    { href: '#partners', label: 'Partners' },
-    { href: '#gallery', label: 'Gallery' },
     { href: '#about', label: 'Theme' },
+    { href: '#participants', label: 'Participants' },
+    { href: '#gallery', label: 'Gallery' },
+    { href: '#partners', label: 'Partners' },
   ];
 
   return (

@@ -48,7 +48,7 @@ export default function StickyHeader() {
             priority
           />
         </div>
-        <h2 className={`text-foreground font-bold leading-tight tracking-[-0.015em] transition-all duration-300 ${isScrolled ? 'text-sm sm:text-base md:text-lg' : 'text-base sm:text-lg md:text-xl'}`}>CIARS</h2>
+        <h2 className={`text-foreground font-bold leading-tight tracking-[-0.015em] transition-all duration-300 ${isScrolled ? 'text-sm sm:text-base md:text-lg' : 'text-base sm:text-lg md:text-xl'}`}>Centre for Integrative Anti-Racism Studies</h2>
       </div>
       <nav
         className="hidden md:flex flex-1 items-center justify-end gap-8"
@@ -61,13 +61,13 @@ export default function StickyHeader() {
             </a>
           </li>
           <li>
-            <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#why-now">
-              Why Now
+            <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#about">
+              Theme
             </a>
           </li>
           <li>
-            <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#partners">
-              Partners
+            <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#participants">
+              Participants
             </a>
           </li>
           <li>
@@ -76,8 +76,8 @@ export default function StickyHeader() {
             </a>
           </li>
           <li>
-            <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#about">
-              Theme
+            <a className="text-foreground text-sm font-medium leading-normal hover:text-primary transition-colors" href="#partners">
+              Partners
             </a>
           </li>
         </ul>
