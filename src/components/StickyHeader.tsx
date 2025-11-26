@@ -102,8 +102,12 @@ export default function StickyHeader() {
         <MobileMenu />
       </div>
     </header>
-    {/* Spacer to prevent content from being hidden behind fixed header */}
-    <div className="h-[72px] sm:h-[80px] md:h-[96px]" />
+    {/* Spacer to prevent content from being hidden behind fixed header
+        Height matches: logo size + vertical padding + border
+        Mobile: size-14 (56px) + py-3 (24px) + border (1px) = 81px
+        SM: size-16 (64px) + py-4 (32px) + border (1px) = 97px  
+        MD+: size-20 (80px) + py-4 (32px) + border (1px) = 113px */}
+    <div className="h-[81px] sm:h-[97px] md:h-[113px]" />
     </>
   );
 }
