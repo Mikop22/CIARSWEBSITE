@@ -36,19 +36,19 @@ export default function StickyHeader() {
           }
         `}
       >
-      <div className={`flex items-center gap-2 sm:gap-3 transition-all duration-300 flex-shrink-0 max-w-[55%] lg:max-w-[45%] ${isScrolled ? 'scale-95 origin-left' : ''}`}>
-        <div className={`text-primary flex items-center justify-center transition-all duration-300 flex-shrink-0 ${isScrolled ? 'size-10 sm:size-12 md:size-14' : 'size-14 sm:size-16 md:size-20'}`}>
+      <div className={`flex items-center gap-2 sm:gap-3 transition-all duration-300 flex-shrink-0 max-w-[50%] sm:max-w-[55%] lg:max-w-[45%] ${isScrolled ? 'scale-95 origin-left' : ''}`}>
+        <div className={`text-primary flex items-center justify-center transition-all duration-300 flex-shrink-0 ${isScrolled ? 'size-8 xs:size-10 sm:size-12 md:size-14' : 'size-10 xs:size-12 sm:size-16 md:size-20'}`}>
           <Image
             src="/logotrans.png"
             alt="logo"
             width={128}
             height={128}
-            sizes="(max-width:640px) 56px, (max-width:768px) 64px, 80px"
-            className={`h-auto transition-all duration-300 ${isScrolled ? 'w-10 sm:w-12 md:w-14' : 'w-14 sm:w-16 md:w-20'}`}
+            sizes="(max-width:480px) 40px, (max-width:640px) 56px, (max-width:768px) 64px, 80px"
+            className={`h-auto transition-all duration-300 ${isScrolled ? 'w-8 xs:w-10 sm:w-12 md:w-14' : 'w-10 xs:w-12 sm:w-16 md:w-20'}`}
             priority
           />
         </div>
-        <h2 className={`text-foreground font-bold leading-tight tracking-[-0.015em] transition-all duration-300 ${isScrolled ? 'text-sm sm:text-base md:text-lg' : 'text-base sm:text-lg md:text-xl'}`}>Centre for Integrative Anti-Racism Studies</h2>
+        <h2 className={`text-foreground font-bold leading-tight tracking-[-0.015em] transition-all duration-300 ${isScrolled ? 'text-xs sm:text-sm md:text-base lg:text-lg' : 'text-xs sm:text-base md:text-lg lg:text-xl'}`}>Centre for Integrative Anti-Racism Studies</h2>
       </div>
       <nav
         className="hidden md:flex flex-1 items-center justify-end gap-8"
@@ -104,10 +104,10 @@ export default function StickyHeader() {
     </header>
     {/* Spacer to prevent content from being hidden behind fixed header
         Height matches: logo size + vertical padding + border
-        Mobile: size-14 (56px) + py-3 (24px) + border (1px) = 81px
+        Mobile: size-10 (40px) + py-3 (24px) + border (1px) = 65px
         SM: size-16 (64px) + py-4 (32px) + border (1px) = 97px  
         MD+: size-20 (80px) + py-4 (32px) + border (1px) = 113px */}
-    <div className="h-[81px] sm:h-[97px] md:h-[113px]" />
+    <div className="h-[65px] sm:h-[97px] md:h-[113px]" />
     </>
   );
 }

@@ -68,7 +68,7 @@ html {
 
 @media (max-width: 640px) {
   html {
-    scroll-padding-top: 60px;
+    scroll-padding-top: 65px;
   }
 }
 
