@@ -117,7 +117,7 @@ export default function Home() {
       <style>{carouselStyles}</style>
       <FloatingRegisterButton />
       {/* TopNavBar - Outside padded container for full width */}
-      <header className="sticky top-0 z-30 bg-[#fbf0db] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-3 sm:py-4">
+      <header className="bg-[#fbf0db] flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-300 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-3 sm:py-4">
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="size-14 sm:size-16 md:size-20 text-primary flex items-center justify-center">
             <Image
@@ -208,6 +208,16 @@ export default function Home() {
                         <p className="text-white/80 text-[9px] sm:text-xs font-normal leading-normal">
                           March 12-14, 2026 | OISE, University of Toronto
                         </p>
+                        <div className="pt-2 sm:pt-4">
+                          <a
+                            href="https://www.eventbrite.ca/e/colonial-ruptures-a-convergence-of-resistance-and-renewal-tickets-1442166622189?aff=oddtdtcreator"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center rounded-md h-10 sm:h-11 px-4 sm:px-6 bg-primary text-white text-xs sm:text-sm font-medium hover:bg-opacity-90 transition-all active:scale-[0.98]"
+                          >
+                            Register Now
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -217,10 +227,9 @@ export default function Home() {
               {/* Content Section */}
               <section id="why-now" className="py-4 sm:py-8 md:py-12 px-1 sm:px-2">
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-3 sm:gap-5 lg:gap-10">
-                  {/* SectionHeader */}
+                  {/* Logo Section */}
                   <div className="lg:col-span-2 animate-fade-in-up">
-                    <h2 className="text-foreground text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight tracking-[-0.015em] break-words">Why This Conference Now?</h2>
-                    {/* Logo below heading: hidden on very small screens, centered under the subtitle */}
+                    {/* Logo: hidden on very small screens, centered */}
                     <div className="mt-4 sm:mt-6 hidden sm:flex w-full items-center justify-center">
                       <Image
                         src="/logotrans.png"

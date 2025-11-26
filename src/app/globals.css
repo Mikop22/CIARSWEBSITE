@@ -21,7 +21,7 @@
   --color-card-dark: #2a1a14;
   --color-border-light: #f3eae7;
   --color-border-dark: #3f2d26;
-  --font-display: var(--font-be-vietnam-pro);
+  --font-display: 'Poppins', sans-serif;
   --radius: 0.25rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
@@ -75,7 +75,7 @@ html {
 body {
   background: #fbf0db;
   color: var(--foreground);
-  font-family: var(--font-be-vietnam-pro), sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: background-color 200ms ease, color 200ms ease;
 }
 
