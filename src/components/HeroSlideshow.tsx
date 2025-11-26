@@ -21,7 +21,7 @@ export default function HeroSlideshow() {
   }, []);
 
   return (
-    <div className="absolute inset-0 -z-10 overflow-hidden sm:rounded-xl">
+    <div className="absolute inset-0 -z-10 overflow-hidden">
       {SLIDESHOW_IMAGES.map((src, index) => (
         <div
           key={src}

@@ -43,14 +43,18 @@ export default function Lightbox({ images, index, onClose, onChange }: Props) {
         ‹
       </button>
 
-      <div className="max-w-[90vw] max-h-[90vh] w-auto h-auto">
+      <div 
+        className="max-w-[90vw] max-h-[90vh] w-auto h-auto"
+        onContextMenu={(e) => e.preventDefault()}
+      >
         <Image
           src={images[current]}
           alt=""
           width={1600}
           height={1000}
-          className="max-w-full max-h-[90vh] object-contain rounded-md shadow-lg"
+          className="max-w-full max-h-[90vh] object-contain rounded-md shadow-lg pointer-events-none select-none"
           priority
+          draggable={false}
         />
       </div>
 
