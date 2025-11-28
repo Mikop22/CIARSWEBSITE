@@ -242,6 +242,24 @@ export default function Home() {
                 </div>
               </section>
 
+              {/* Important Dates Section */}
+              <section id="important-dates" className="py-6 sm:py-10 md:py-14 px-1 sm:px-2 animate-fade-in-up">
+                <div className="max-w-3xl mx-auto text-center">
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-bold leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
+                    Important Dates
+                  </h3>
+                  <div className="w-20 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
+                  <div className="space-y-2 sm:space-y-3 text-foreground/80 text-sm sm:text-base md:text-lg">
+                    <p>
+                      <span className="font-medium text-foreground">Notification of Presenter Acceptance:</span> January 16, 2026
+                    </p>
+                    <p>
+                      <span className="font-medium text-foreground">Registration Deadline:</span> February 20, 2026
+                    </p>
+                  </div>
+                </div>
+              </section>
+
               {/* Participants Section */}
               <section id="participants" className="py-6 sm:py-10 md:py-14 px-1 sm:px-2 animate-fade-in-up">
                 <div className="max-w-3xl mx-auto text-center">
@@ -313,24 +331,6 @@ export default function Home() {
                   onChange={(i) => setLightboxIndex(i)}
                 />
               )}
-
-              {/* Important Dates Section */}
-              <section id="important-dates" className="py-6 sm:py-10 md:py-14 px-1 sm:px-2 animate-fade-in-up">
-                <div className="max-w-3xl mx-auto text-center">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-bold leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
-                    Important Dates
-                  </h3>
-                  <div className="w-20 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
-                  <div className="space-y-2 sm:space-y-3 text-foreground/80 text-sm sm:text-base md:text-lg">
-                    <p>
-                      <span className="font-medium text-foreground">Notification of Presenter Acceptance:</span> January 16, 2026
-                    </p>
-                    <p>
-                      <span className="font-medium text-foreground">Registration Deadline:</span> February 20, 2026
-                    </p>
-                  </div>
-                </div>
-              </section>
 
               {/* Partner Logos Banner */}
               <section id="partners" className="py-6 sm:py-10 md:py-16 lg:py-24 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32">
