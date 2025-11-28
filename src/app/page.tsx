@@ -19,7 +19,6 @@ const GALLERY_IMAGES = [
   "/pastconference/IMG_1931.jpg",
   "/pastconference/IMG_2301.jpg",
   "/pastconference/IMG_1821.jpg",
-  "/pastconference/IMG_2276.jpg",
   "/pastconference/IMG_2145.jpg",
   "/pastconference/IMG_1972.jpg",
   "/pastconference/IMG_2204.jpg",
