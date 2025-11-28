@@ -127,14 +127,17 @@ export default function Home() {
           <HeroSlideshow />
           <div className="relative z-10 flex flex-col gap-2 sm:gap-3 max-w-4xl px-1 sm:px-4">
             <p className="text-white text-[10px] sm:text-xs md:text-sm font-medium leading-normal">Centre for Integrative Anti-Racism Studies</p>
-            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-light leading-tight tracking-[-0.02em]">
+            <h1 className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-[-0.02em]">
               13th Decolonizing Conference
             </h1>
             <h2 className="text-white text-[10px] sm:text-xs md:text-sm lg:text-base font-normal leading-snug">
               COLONIAL RUPTURES: UNMASKING ONGOING COLONIALITY AND FOSTERING RESISTANCE AND LIBERATORY POSSIBILITIES
             </h2>
             <p className="text-white/80 text-xs sm:text-sm md:text-base font-normal leading-normal">
-              March 12-14, 2026 | OISE, University of Toronto
+              Date: March 12-14, 2026 | Time: 8:30am - 6:30pm
+            </p>
+            <p className="text-white/80 text-xs sm:text-sm md:text-base font-normal leading-normal">
+              Address: 252 Bloor St. W, Toronto, ON M5S 1V6
             </p>
             <div className="pt-2 sm:pt-4">
               <a
@@ -176,7 +179,10 @@ export default function Home() {
                   {/* BodyText */}
                   <div className="lg:col-span-3 space-y-2 sm:space-y-3 animate-fade-in-up">
                     <p className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
-                      In a world grappling with the enduring legacies of colonialism, this conference provides a critical space for dialogue, reflection, and action. We convene to challenge the structures that perpetuate coloniality and to amplify the voices of resistance that forge paths toward liberatory futures. This gathering is a call to scholars, activists, artists, and community members to collectively unmask ongoing colonial ruptures and imagine possibilities for profound, sustainable change and regeneration.
+                      The ongoing legacies of colonialism continue to shape our world and our experiences within it—manifesting in racial hierarchies, health disparities, economic inequities, cultural erasures, and Land struggles and reclamations, all of which fuel ongoing geopolitical tensions. This conference offers a space for meaningful dialogue, critical reflection, and collective action, bringing together emerging and established scholars, artists, activists, community members and leaders, and other radical thinkers from around the world who are engaged in anti-colonial, anti-racist, and inclusive education work. Let us collectively address and confront ongoing global challenges and imagine possibilities for profound, sustainable change and regeneration.
+                    </p>
+                    <p className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed mt-2 sm:mt-3">
+                      Join us in-person at the Ontario Institute for Studies in Education (OISE), University of Toronto in Canada.
                     </p>
                     {/* ButtonGroup */}
                     <div className="pt-2 sm:pt-4">
@@ -200,7 +206,7 @@ export default function Home() {
                 <div className="max-w-5xl mx-auto">
                   {/* Section Header */}
                   <div className="text-center mb-4 sm:mb-8 md:mb-10 animate-fade-in-up">
-                    <h2 className="text-foreground dark:text-text-dark text-lg sm:text-xl md:text-2xl lg:text-3xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
+                    <h2 className="text-foreground dark:text-text-dark text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
                       About the Conference
                     </h2>
                     <div className="w-20 h-1 bg-primary mx-auto"></div>
@@ -209,30 +215,28 @@ export default function Home() {
                   {/* Conference Overview */}
                   <div className="space-y-6 sm:space-y-8">
                     <div className="animate-fade-in-up">
-                      <h3 className="text-foreground dark:text-text-dark text-base sm:text-lg md:text-xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
-                        What Conversations
-                      </h3>
                       <div className="space-y-2 sm:space-y-3 text-foreground/80 dark:text-text-dark/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
                         <p>
-                          Working through anti- and decolonial lenses, the conference encourages dialectical and conjunctural analyses that connect histories, ideas, events, and practices that have shaped human growth and continue to do so (see Hall, 1989). The conference will be a space to advance critical anti-colonial knowledge, critique the present, and reimagine the world grounded in &ldquo;home-grown cultural perspectives&rdquo; (Yankah, 2004, p. 25). We do not aim solely to resist; rather, we seek to build new futures that challenge dominant and colonial ways of knowing and being.
+                          Anchored in de/anti-colonial thinking, the conference encourages dialectical and conjunctural analyses that connect the histories, ideas, and practices shaping human experience and growth. It seeks to advance critical anti-colonial knowledge, critique the present, and reimagine new futures of living well together—futures that resist continuing global capital extractivism, white supremacy, and fascist agendas, and instead, build alternative ways of knowing, being, and relating to one another.
                         </p>
                         <p>
-                          We seek scholarship grounded in community accountability, rejecting academic hierarchies and performative intellectualism in favor of collective, ethical learning.
-                        </p>
-                        <p>
-                          Using de/anti-colonial prisms, the conference will explore the meaning of &ldquo;living well together for new futures&rdquo; that resist continuing global capital extractivism, white supremacy, and fascist agendas. The conference invites work that examines the entanglements of white supremist logics, and racial capitalism with the enduring impacts on institutional carceralities, material, symbolic, physical violences and generational trauma. It calls for ethical, transformative scholarship that bridges divides, nurtures community, and aligns theory with activism to move beyond mere awakening of critical consciousness.
+                          The conference thus calls for ethical and transformative scholarship that bridges divides, nurtures community, and aligns theory with activism to move beyond mere awakening of critical consciousness. This involves the rejection of performative intellectualism and politics, advocating instead for the cultivation of communities grounded in academic mentorship and collective care. It is urgent for us to reject colonial binaries that promote &ldquo;thinking in hierarchies,&rdquo; eradicate toxicity and dehumanization and see education and social justice work as foundational to human liberation. Together, we aim to resist hate, violence, oppression, and all forms of genocide within the corollary of colonialism by bridging the gaps between scholarship, activism and social politics.
                         </p>
                       </div>
                     </div>
 
-                    {/* Defining Features */}
+                    {/* Guiding Questions */}
                     <div className="animate-fade-in-up bg-card-light rounded-lg p-3 sm:p-5 md:p-6 border border-border-light">
-                      <h3 className="text-foreground text-base sm:text-lg md:text-xl font-light leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
-                        Defining Features
+                      <h3 className="text-foreground text-base sm:text-lg md:text-xl font-bold leading-tight tracking-[-0.015em] mb-2 sm:mb-3">
+                        Guiding Questions
                       </h3>
-                      <p className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed">
-                        As a defining feature, the conference calls for learners and community workers to reject performative intellectualism and politics and instead create communities and uphold academic mentorship - specifically holding each other up rather than tearing each other down. It is urgent for us to reject colonial binaries that promote &ldquo;thinking in hierarchies&rdquo;, eradicate toxicity and dehumanization and see education and social justice work as foundational to human liberation. Together, we aim to resist hate, violence, oppression and genocide within the corollary of colonialism by bridging the gaps between scholarship, activism and social politics.
-                      </p>
+                      <ul className="text-foreground/80 text-xs sm:text-sm md:text-base font-normal leading-relaxed space-y-2 sm:space-y-3 list-disc list-inside">
+                        <li>How can we build anti-colonial solidarities rooted in radical hope and futurity?</li>
+                        <li>How might teachings of Land—sharing, reciprocity, connection, mutual interdependence, and community building, as well as shared responsibilities—subvert colonial hierarchies in education?</li>
+                        <li>How do we resist subjectivities and continue ancestral struggles for liberation?</li>
+                        <li>What epistemic and political practices can release us from colonizing relations?</li>
+                        <li>How can we reclaim control over our stories and identities to upend intellectual enslavement?</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -241,12 +245,12 @@ export default function Home() {
               {/* Participants Section */}
               <section id="participants" className="py-6 sm:py-10 md:py-14 px-1 sm:px-2 animate-fade-in-up">
                 <div className="max-w-3xl mx-auto text-center">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-bold leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
                     Participants
                   </h3>
                   <div className="w-20 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
                   <p className="text-foreground/80 text-sm sm:text-base md:text-lg leading-relaxed">
-                    More information about presenters, keynotes, and plenary speakers coming soon
+                    More information about presenters, keynotes, and plenary speakers coming soon.
                   </p>
                 </div>
               </section>
@@ -254,7 +258,7 @@ export default function Home() {
               {/* Image Banner/Carousel Section */}
               <section id="gallery" className="py-6 sm:py-10 md:py-16 animate-fade-in-up">
                 <div className="w-full overflow-hidden">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-4 sm:pb-6 md:pb-8">From Our Past Gatherings</h3>
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-4 sm:pb-6 md:pb-8">From Our Past Gatherings</h3>
 
                   <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-1 sm:gap-2 md:gap-3 px-1 sm:px-4">
                     {GALLERY_IMAGES.slice(0, visibleCount).map((src, idx) => (
@@ -313,16 +317,16 @@ export default function Home() {
               {/* Important Dates Section */}
               <section id="important-dates" className="py-6 sm:py-10 md:py-14 px-1 sm:px-2 animate-fade-in-up">
                 <div className="max-w-3xl mx-auto text-center">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-bold leading-tight tracking-[-0.015em] mb-4 sm:mb-6">
                     Important Dates
                   </h3>
                   <div className="w-20 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
                   <div className="space-y-2 sm:space-y-3 text-foreground/80 text-sm sm:text-base md:text-lg">
                     <p>
-                      <span className="font-medium text-foreground">Deadline to submit abstracts:</span> November 14, 2025
+                      <span className="font-medium text-foreground">Notification of Presenter Acceptance:</span> January 16, 2026
                     </p>
                     <p>
-                      <span className="font-medium text-foreground">Notification of acceptance:</span> January 16, 2026
+                      <span className="font-medium text-foreground">Registration Deadline:</span> February 20, 2026
                     </p>
                   </div>
                 </div>
@@ -331,7 +335,7 @@ export default function Home() {
               {/* Partner Logos Banner */}
               <section id="partners" className="py-6 sm:py-10 md:py-16 lg:py-24 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-16 xl:-mx-32">
                 <div className="w-full">
-                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-light leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-12">
+                  <h3 className="text-center text-foreground text-lg sm:text-xl md:text-2xl font-bold leading-tight tracking-[-0.015em] px-4 pb-6 sm:pb-8 md:pb-12">
                     In Collaboration With
                   </h3>
                   <div className="relative w-full overflow-hidden">
